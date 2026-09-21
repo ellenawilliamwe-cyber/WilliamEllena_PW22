@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArsNova</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/eventi.css">
+    <link rel="stylesheet" href="./css/prenotazioni.css">
+    <link rel="stylesheet" href="./css/profilo.css">
+    <link rel="stylesheet" href="./css/notifica_conf.css">
+</head>
+
+<body>
+    <div id="siparioContenitore">
+        <div id="tendaSinistra" class="tenda"></div>
+
+        <div id="authBox">
+            <form id="moduloLoginSchema" class="moduloAccesso">
+                <h2>Accedi</h2>
+                <input type="email" id="loginEmail" required placeholder="La tua Email">
+                <input type="password" id="loginPassword" required placeholder="La tua Password">
+                <div class="casellaSpunta" style="margin-top: 0.5rem; border: none; padding: 0;">
+                    <input type="checkbox" id="checkMostraLogin" onclick="togglePassword('loginPassword')">
+                    <label for="checkMostraLogin">Mostra caratteri</label>
+                </div>
+                <button type="submit" class="btnRustico btnInvia">Accedi</button>
+                <div class="contenitoreCambioAccesso">
+                    <p class="invitoAccesso">Non hai ancora un profilo?</p>
+                    <button type="button" class="btnCambiaAccesso" onclick="mostraFormReg()">Registrati Qui</button>
+                </div>
+            </form>
+            <form id="moduloRegistrazioneSchema" class="moduloAccesso nascosto">
+                <h2>Nuovo Visitatore</h2>
+                <input type="text" id="regNome" required placeholder="Nome e Cognome">
+                <input type="email" id="regEmail" required placeholder="Email">
+                <input type="password" id="regPassword" required placeholder="Scegli Password">
+                <div class="casellaSpunta" style="margin-top: 0.5rem; border: none; padding: 0;">
+                    <input type="checkbox" id="checkMostraReg" onclick="togglePassword('regPassword')">
+                    <label for="checkMostraReg">Mostra caratteri</label>
+                </div>
+                <label for="regDataNascita">Data di Nascita</label>
+                <input type="date" id="regDataNascita" required>
+                <div class="gruppoModulo">
+                    <label for="regSesso">Genere</label>
+                    <select id="regSesso" required>
+                        <option value="">Seleziona...</option>
+                        <option value="M">Maschio</option>
+                        <option value="F">Femmina</option>
+                        <option value="ALTRO">Altro</option>
+                    </select>
+                </div>
+                <div class="casellaSpunta">
+                    <input type="checkbox" id="regStudente">
+                    <label for="regStudente">Sono uno Studente</label>
+                </div>
+                <button type="submit" class="btnRustico btnRustico">Crea Account</button>
+                <div class="contenitoreCambioAccesso">
+                    <p class="invitoAccesso">Hai già un account registrato?</p>
+                    <button type="button" class="btnCambiaAccesso" onclick="mostraFormLogin()">Accedi al
+                        Profilo
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <div id="tendaDestra" class="tenda"></div>
+    </div>
+
+    <div id="stanzaMuseo">
+        <div class="ambiente3d">
+            <div class="superficie soffitto">
+            </div>
+        </div>
+        <div class="superficie pavimentoParquet"></div>
+        <div class="superficie pareteLaterale sinistra"></div>
+        <div class="superficie pareteLaterale destra"></div>
+
+        <div class="pareteLuci">
+            <main class="pareteFondo">
+                <div class="guscioMuseo">
+                    <header class="testataMuseo">
+                        <div class="logoMuseo" aria-label="ArsNova">
+                            <img src="./icone/logo.png" alt="ArsNova">
+                        </div>
+                        <button type="button" class="btnMenu" id="btnMenuMobile"
+                            aria-label="Apri menu" aria-expanded="false">
+                            <span aria-hidden="true">☰</span>
+                        </button>
+                        <nav class="menuNav" id="mainNavbar">
+                            <ul class="linkMenu" id="menuLinks">
+                                <li class="soloUtente nascosto">
+                                    <a href="#" class="voceMenu attivo" onclick="mostraPagina('paginaMostre')">Eventi</a>
+                                </li>
+                                <li class="soloUtente nascosto">
+                                    <a href="#" class="voceMenu"
+                                        onclick="mostraPagina('paginaPrenotazioni'); caricaStoricoUtente();">I Miei
+                                        Biglietti</a>
+                                </li>
+                                <li class="soloUtente nascosto">
+                                    <a href="#" class="voceMenu"
+                                        onclick="mostraPagina('paginaProfilo'); visualizzaProfilo();">Profilo
+                                    </a>
+                                </li>
+                                <li class="soloAdmin nascosto">
+                                    <a href="admin.html" class="voceMenu etichettaUtente"
+                                        style="color:var(--testo-oro);">Pannello Admin
+                                    </a>
+                                </li>
+                                <li class="soloUtente nascosto">
+                                    <a href="#" class="voceMenu testoPericolo btnLogout"
+                                        id="btnLogoutClick">Logout
+                                    </a>
+                                </li>
+                                <li class="btnAccedi soloOspite"
+                                    onclick="apriSiparioPerAuth()" style="cursor: pointer;">
+                                    <a class="voceMenu" style="pointer-events: none;">
+                                        Accedi / Registrati
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </header>
+                    <section id="paginaMostre" class="pagina">
+
+                        <div class="testataHero">
+                            <h1>Eventi disponibili</h1>
+                            <p>Prenota il tuo prossimo evento!</p>
+                        </div>
+
+                        <div class="barraFiltri">
+                            <div class="campoFiltro">
+                                <label for="campoTitolo">Inserisci titolo</label>
+                                <input type="text" id="campoTitolo" placeholder="Es. Mostra Egizia...">
+                            </div>
+                            <div class="campoFiltro">
+                                <label for="campoLuogo">Sala</label>
+                                <input type="text" id="campoLuogo" placeholder="Es. Sala A...">
+                            </div>
+                            <div class="campoFiltro">
+                                <label for="campoPrezzo">Prezzo Massimo</label>
+                                <input type="number" id="campoPrezzo" min="0" placeholder="Inserisci budget">
+                            </div>
+                            <button id="btnCerca" class="btnCerca">Applica Filtri</button>
+
+                            <div id="contenitoreEventi" class="grigliaEventi"></div>
+                        </div>
+
+                    </section>
+
+
+                    <section id="paginaCheckout" class="pagina nascosto">
+                        <div class="schedaPagamento">
+
+                            <button class="btnIndietro" onclick="mostraPagina('paginaMostre')">
+                                Torna alle mostre
+                            </button>
+
+                            <h2 class="titoloOro">Riepilogo Ordine</h2>
+
+
+                            <div class="riepilogoEvento">
+                                <h3 id="checkoutTitoloEvento">Nome Evento</h3>
+                                <p id="checkoutLuogoEvento" class="dettaglio">Luogo</p>
+                                <p id="checkoutDataEvento" class="dettaglio">Data</p>
+                                <p class="prezzoBase">
+                                    Prezzo Base: € <span id="checkoutPrezzoBase">0.00</span>
+                                </p>
+                            </div>
+
+
+                            <form id="moduloTransazioneCheckout" class="moduloPagamento">
+
+                                <div class="gruppoModulo">
+                                    <label for="checkoutQuantita">Numero di Ingressi / Posti</label>
+                                    <input type="number" id="checkoutQuantita" value="1" min="1" max="10"
+                                        oninput="ricalcolaTotaleCheckout()">
+                                </div>
+
+                                <div class="gruppoModulo">
+                                    <label for="checkoutMetodo">Metodo di Pagamento</label>
+                                    <select id="checkoutMetodo" required>
+                                        <option value="Carta di Credito">Carta di Credito</option>
+                                        <option value="PayPal">PayPal</option>
+                                        <option value="CASSA" id="optPagamentoCassa" class="nascosto">Paga in contanti
+                                            cassa
+                                        </option>
+                                    </select>
+                                </div>
+
+                                <div class="gruppoModulo">
+                                    <label for="checkoutNota">Note Aggiuntive</label>
+                                    <textarea id="checkoutNota" rows="2"
+                                        placeholder="Note per l'operatore di sala..."></textarea>
+                                </div>
+
+
+                                <div class="bloccoTotale">
+                                    <p class="totaleTesto">
+                                        Totale: € <span id="checkoutPrezzoFinale">0.00</span>
+                                    </p>
+
+                                    <small id="checkoutBadgeSconto" class="sconto nascosto">
+                                        Sconto studente: Riduzione -20%
+                                    </small>
+                                </div>
+
+                                <button type="submit" class="btnPagamento">Paga</button>
+                            </form>
+                        </div>
+                    </section>
+
+
+                    <section id="paginaPrenotazioni" class="pagina nascosto">
+
+                        <div class="scheda schedaMostra riquadroProfilo"
+                            style="margin: 0 auto; padding: 30px;">
+
+                            <div class="testataScheda testoSinistra" style="margin-bottom: 20px;">
+                                <h2 class="titoloMostra titoloAdmin" style="text-align: left;">
+                                    I tuoi biglietti                                    
+                                </h2>
+                                <p class="testoSezione" style="text-align: left; margin-top: 8px; margin-bottom: 0;">
+                                    Gestione dei biglietti acquistati.
+                                </p>
+                            </div>
+
+
+                            <div id="tabellaStoricoContenitore" class="contenitoreTabella">
+
+                            </div>
+
+                        </div>
+                    </section>
+
+
+                    <section id="paginaProfilo" class="pagina nascosto">
+
+                        <div class="centraturaProfilo">
+                            <div class="schedaProfilo">
+
+
+                                <div class="scheda schedaMostra riquadroProfilo">
+                                    <div class="testataScheda testoSinistra">
+                                        <h2 class="titoloMostra titoloAdmin">Scheda Utente</h2>
+                                    </div>
+
+
+                                    <div class="riepilogoEvento riepilogoAnagrafica">
+                                        <p class="dettaglio infoProfilo">
+                                            <strong>Nome utente:</strong> <span id="profNome">...</span>
+                                        </p>
+                                        <p class="dettaglio infoProfilo cellaEmail">
+                                            <strong>E-mail:</strong> <span id="profEmail">...</span>
+                                        </p>
+                                        <p class="dettaglio infoProfilo">
+                                            <strong>Età Calcolata:</strong> <span id="profEta">...</span>
+                                        </p>
+                                        <p class="dettaglio infoProfilo">
+                                            <strong>Genere:</strong> <span id="profSesso">...</span>
+                                        </p>
+                                        <p class="prezzoBase rigaTariffa">
+                                            <strong>Inquadramento Tariffario:</strong>
+                                            <span id="profStato">...</span>
+                                        </p>
+                                    </div>
+                                </div>
+
+
+                                <div class="scheda schedaMostra spazioScheda riquadroProfilo">
+                                    <div class="testataScheda">
+                                        <h3 class="titoloMostra">Modifica Profilo</h3>
+                                    </div>
+
+                                    <form id="moduloModificaProfilo" class="moduloPagamento">
+                                        <div class="gruppoModulo">
+                                            <label for="modificaNome">Nuovo nome</label>
+                                            <input type="text" id="modificaNome" required>
+                                        </div>
+
+                                        <div class="gruppoModulo">
+                                            <label for="modificaDataNascita">Nuova data di Nascita</label>
+                                            <input type="date" id="modificaDataNascita" required>
+                                        </div>
+                                        <div class="gruppoModulo">
+                                            <label for="modificaPassword">Nuova Password di Accesso (Opzionale)</label>
+                                            <input type="password" id="modificaPassword"
+                                                placeholder="Lascia vuoto se invariata">
+                                            <div class="layoutSpunta">
+                                                <input type="checkbox" id="checkMostraNuova"
+                                                    onclick="togglePassword('modificaPassword')">
+                                                <label for="checkMostraNuova">Mostra caratteri</label>
+                                            </div>
+                                        </div>
+                                        <div class="gruppoModulo bloccoPwd">
+                                            <label for="modificaPasswordAttuale">Password
+                                                (Obbligatoria)</label>
+                                            <input type="password" id="modificaPasswordAttuale" required
+                                                placeholder="Inserisci la password corrente per autorizzare">
+                                            <div class="layoutSpunta">
+                                                <input type="checkbox" id="checkMostraAttuale"
+                                                    onclick="togglePassword('modificaPasswordAttuale')">
+                                                <label for="checkMostraAttuale">Mostra caratteri</label>
+                                            </div>
+                                        </div>
+                                        <div class="layoutSpunta">
+                                            <input type="checkbox" id="modificaStudente">
+                                            <label for="modificaStudente">
+                                                Sono uno studente
+                                            </label>
+                                        </div>
+                                        <button type="submit" class="btnPagamento">Salva Modifiche</button>
+                                        <div class="bloccoTotale">
+                                            <h3 class="titoloOro">ATTENZIONE</h3>
+                                            <p class="testoSezione">
+                                                Eliminando l'account verranno cancellati tutti i dati
+                                            </p>
+                                            <button type="button" id="btnEliminaMioAccount" class="btnPagamento">
+                                                Elimina Account
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </main>
+            <div class="gruppoFaretti gruppoFarettiOverlay" aria-hidden="true">
+                <div class="luceSoffitto"></div>
+                <div class="luceSoffitto"></div>
+                <div class="luceSoffitto"></div>
+                <div class="luceSoffitto"></div>
+            </div>
+        </div>
+    </div>
+    <div id="notificheContenitore"></div>
+    <div id="customModale" class="modalScuro nascosto">
+        <div class="contenutoModal" id="modaleDinamicaCorpo">
+        </div>
+    </div>
+    <script src="./js/animations.js"></script>
+    <script src="./js/auth.js"></script>
+    <script src="./js/app.js"></script>
+</body>
+
+</html>

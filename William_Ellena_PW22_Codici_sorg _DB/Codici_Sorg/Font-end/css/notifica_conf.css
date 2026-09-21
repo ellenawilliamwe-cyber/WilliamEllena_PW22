@@ -1,0 +1,30 @@
+
+.backdropConfermaGlobale {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 90;
+    opacity: 1;
+    visibility: visible;
+}
+
+.scrignoConfermaContenuto {
+    background: rgba(20, 20, 20, 0.98);
+    border: 2px solid #d4af37;
+    border-radius: 12px;
+    padding: 35px;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.95), 0 0 30px rgba(214, 175, 55, 0.25);
+    box-sizing: border-box;
+    text-align: center;
+    animation: zoomEntrataModalCrud 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}

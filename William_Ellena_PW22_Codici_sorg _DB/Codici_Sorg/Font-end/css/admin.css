@@ -1,0 +1,644 @@
+.radioAdmin {
+    display: none;
+}
+
+#modaleEventoCrud {
+    position: fixed;
+    inset: 0;
+    z-index: 70;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.78);
+    backdrop-filter: blur(5px);
+}
+
+#modaleEventoCrud.nascosto {
+    display: none;
+}
+
+#modaleEventoCrud .contenutoModal {
+    width: min(100%, 620px);
+    max-height: 92vh;
+    overflow-y: auto;
+    padding: 30px;
+    background: #260a0a;
+    border: 2px solid var(--oro-rustico, #d4af37);
+    border-radius: 10px;
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.9);
+}
+
+.testataMuseo:has(.logoAdmin) {
+    min-height: 78px;
+    padding: 18px 24px;
+    align-items: center;
+}
+
+.testataMuseo .logoAdmin {
+    position: static;
+    flex-shrink: 0;
+    width: 425px;
+    height: 145px;
+    pointer-events: none;
+    user-select: none;
+}
+
+.testataMuseo .logoAdmin img {
+    width: 100%;
+    height: 100%;
+}
+
+.testataMuseo .menuAdmin {
+    margin-left: auto;
+    margin-right: 0;
+    gap: 14px;
+    justify-content: flex-end;
+}
+
+.testataMuseo .menuAdmin .voceMenu {
+    display: inline-flex;
+    align-items: center;
+    min-height: 42px;
+    padding: 10px 18px;
+    border: 2px solid rgba(212, 175, 55, 0.7);
+    border-radius: 6px;
+    background: rgba(20, 15, 12, 0.8);
+}
+
+.testataMuseo .menuAdmin .voceMenu:hover {
+    background: var(--oro-rustico);
+    color: var(--legno-scuro);
+}
+
+@media (min-width: 769px) {
+    #stanzaMuseo .ambiente3d .pareteLuci {
+        overflow: visible;
+    }
+
+    #stanzaMuseo .ambiente3d .gruppoFarettiOverlay {
+        top: -8% !important;
+        height: 60% !important;
+        z-index: 50 !important;
+        overflow: visible !important;
+    }
+}
+
+.pannelloAdmin {
+    display: none;
+    width: 100%;
+    max-width: 100%;
+    min-height: auto;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+#attivatoreModerazione:checked ~ .contenitorePannelliAdmin #pannelloModerazione,
+#attivatoreCatalogo:checked ~ .contenitorePannelliAdmin #pannelloCatalogo,
+#attivatoreRegistro:checked ~ .contenitorePannelliAdmin #pannelloRegistro,
+#attivatoreAssistenza:checked ~ .contenitorePannelliAdmin #pannelloAssistenza,
+#attivatoreCollaboratori:checked ~ .contenitorePannelliAdmin #pannelloCollaboratori {
+    display: flex;
+    flex-direction: column;
+}
+
+.menuSchedeAdmin {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 15px;
+    margin-bottom: 2.5rem;
+}
+
+.etichettaScheda {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 44px;
+    padding: 0 22px;
+    background: rgba(20, 15, 12, 0.6);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 6px;
+    color: #e2d7c5;
+    font-family: 'Cinzel', serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    opacity: 0.65;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.etichettaScheda:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+    border-color: var(--oro-rustico, #d4af37);
+}
+
+#attivatoreModerazione:checked ~ .menuSchedeAdmin label[for="attivatoreModerazione"],
+#attivatoreCatalogo:checked ~ .menuSchedeAdmin label[for="attivatoreCatalogo"],
+#attivatoreRegistro:checked ~ .menuSchedeAdmin label[for="attivatoreRegistro"],
+#attivatoreAssistenza:checked ~ .menuSchedeAdmin label[for="attivatoreAssistenza"],
+#attivatoreCollaboratori:checked ~ .menuSchedeAdmin label[for="attivatoreCollaboratori"] {
+    background: var(--oro-rustico, #d4af37);
+    color: var(--legno-scuro, #241c15);
+    box-shadow: 0 0 15px rgba(214, 175, 55, 0.6);
+    transform: translateY(-2px);
+    opacity: 1;
+}
+
+.grigliaIndicatori {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    margin-bottom: 2.5rem;
+    width: 100%;
+}
+
+.riquadroIndicatore, .riquadroStatistica {
+    border-right: none;
+    padding-right: 0;
+    background: rgba(10, 10, 10, 0.45);
+    padding: 22px;
+    border-radius: 8px;
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.valoreIndicatoreVerde, .valoreIndicatoreOro { 
+    font-size: 2rem;
+    font-weight: 800;
+    color: #ffe89e;
+    font-family: 'Cinzel', monospace;
+    text-shadow: 0 0 10px rgba(255, 232, 158, 0.3);
+}
+
+.testoIndicatore {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--oro-rustico, #d4af37);
+    margin-top: 0.5rem;
+    display: block;
+    font-family: 'Cinzel', serif;
+    text-transform: uppercase;
+    order: 0;
+}
+
+.testoStatistiche {
+    order: -1;
+}
+
+#pannelloModerazione .barraOperazioni {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto auto;
+    gap: 12px;
+    align-items: end;
+    padding: 16px;
+    background: rgba(10, 10, 10, 0.32);
+    border: 1px solid rgba(212, 175, 55, 0.22);
+    border-radius: 8px;
+}
+
+#pannelloModerazione .barraOperazioni .campoElastico {
+    min-width: 0;
+    margin: 0;
+}
+
+#pannelloModerazione .barraOperazioni button {
+    min-width: 150px;
+    padding: 0 16px;
+}
+
+#pannelloModerazione .testataScheda {
+    margin-bottom: 16px;
+}
+
+#corpoGestionePersonale .modificaPermessi,
+#corpoGestionePersonale .revocaAccesso {
+    vertical-align: middle;
+}
+
+#corpoGestionePersonale .modificaPermessi {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 220px;
+}
+
+#corpoGestionePersonale .revocaAccesso {
+    min-width: 150px;
+}
+
+#corpoGestionePersonale .selettorePermessi {
+    min-width: 0;
+    width: 145px;
+}
+
+#corpoGestionePersonale .btnApplicaPermessi,
+#corpoGestionePersonale .btnRevocaAdmin {
+    flex: 0 0 auto;
+    white-space: nowrap;
+}
+
+#btnAdminCercaUtente,
+#btnAdminEliminaUtente,
+#btnAdminRisolviCollisione,
+#btnCercaPrenotazioni,
+.btnStaff,
+#pannelloModerazione .barraOperazioni button,
+.moduloStaff button[type="submit"] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #b32d38 0%, #7a1b22 100%);
+    border: 1px solid var(--oro-rustico, #d4af37);
+    color: #ffffff;
+    height: 48px;
+    padding: 0 24px;
+    border-radius: 8px;
+    font-family: 'Cinzel', 'Georgia', serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    white-space: nowrap;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+#btnAdminCercaUtente:hover, #btnAdminEliminaUtente:hover, #btnAdminRisolviCollisione:hover, 
+#btnCercaPrenotazioni:hover, .btnStaff:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 6px 20px rgba(214, 175, 55, 0.4);
+    filter: brightness(1.25);
+}
+
+.btnMiniLegno, 
+.btnMiniVelluto, 
+.btnConferma, 
+.btnEliminaDiretto,
+.btnModifica,
+.btnElimina,
+.btnRevocaUfficio,
+.btnApplicaPermessi,
+.btnRevocaAdmin,
+#corpoGestionePersonale button,
+#corpoCustomerServicePrenotazioni button,
+#corpoCrudEventi button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 28px; 
+    padding: 0 12px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-family: 'Cinzel', 'Georgia', serif;
+    cursor: pointer;
+    border-radius: 15px; 
+    border: 1px solid rgba(212, 175, 55, 0.5);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    transition: all 0.2s ease;
+}
+
+.btnMiniVelluto, .btnEliminaDiretto, .btnElimina, .btnRevocaUfficio, .btnRevocaAdmin {
+    background: linear-gradient(135deg, #a32a31 0%, #6e161c 100%);
+    color: #ffffff;
+}
+
+.btnMiniVelluto:hover, .btnEliminaDiretto:hover, .btnElimina:hover, .btnRevocaUfficio:hover {
+    filter: brightness(1.3);
+    box-shadow: 0 0 8px rgba(255, 71, 87, 0.4);
+}
+
+.btnMiniLegno, .btnModifica, .btnApplicaPermessi {
+    background: var(--legno-scuro, #241c15);
+    color: #ffe89e;
+}
+
+.btnMiniLegno:hover, .btnModifica:hover, .btnApplicaPermessi:hover {
+    background: var(--oro-rustico, #d4af37);
+    color: var(--legno-scuro, #241c15);
+    box-shadow: 0 0 8px rgba(214, 175, 55, 0.4);
+}
+
+.scheda.schedaMostra.pannelloAdmin {
+    background: rgba(18, 14, 11, 0.45);
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    border-radius: 12px;
+    padding: 35px;
+    margin-bottom: 30px;
+    box-sizing: border-box;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.95), inset 0 0 40px rgba(214, 175, 55, 0.04);
+    position: relative;
+    width: 100%;
+}
+
+.testataScheda {
+    border-bottom: none;
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    width: 100%;
+}
+
+.titoloMostra.titoloAdmin {
+    font-family: 'Cinzel', serif;
+    font-size: 1.6rem;
+    color: #ffe89e;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin: 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.contenitoreTabella {
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 1.5rem;
+    border-radius: 8px;
+    border: none;
+    background-color: rgba(15, 12, 10, 0.25);
+}
+
+.tabellaAdmin {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Georgia', serif;
+    background: transparent;
+}
+
+.tabellaAdmin th {
+    background-color: var(--legno-scuro, #241c15);
+    color: var(--oro-rustico, #d4af37);
+    font-family: 'Cinzel', serif;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.6px;
+    padding: 14px 16px;
+    text-align: left;
+    border-bottom: 2px solid var(--oro-rustico, #d4af37);
+    white-space: nowrap;
+}
+
+.tabellaAdmin td {
+    padding: 14px 16px;
+    font-size: 0.85rem;
+    color: #e2d7c5;
+    vertical-align: middle;
+    border-bottom: none;
+}
+
+.tabellaAdmin tbody tr:nth-child(even) {
+    background-color: rgba(36, 28, 21, 0.25);
+}
+
+.tabellaAdmin tbody tr:hover {
+    background-color: rgba(212, 175, 55, 0.05);
+    transition: background-color 0.2s ease;
+}
+
+.moduloStaff, .riquadroCollisione {
+    background: rgba(10, 10, 10, 0.35);
+    padding: 22px;
+    border-radius: 8px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    margin-bottom: 2rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.tabellaAdmin, 
+.tabellaStorico {
+    min-width: 1200px;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tabellaAdmin th,
+.tabellaAdmin td,
+.tabellaStorico td {
+    white-space: nowrap;
+    padding: 14px 16px;
+}
+
+#pannelloCatalogo,
+#pannelloAssistenza {
+    color: #e2d7c5;
+}
+
+#pannelloCatalogo .descrizioneMostra,
+#pannelloAssistenza .descrizioneMostra,
+#pannelloCatalogo .campoFiltro label,
+#pannelloAssistenza .campoFiltro label {
+    color: #e2d7c5;
+}
+
+#pannelloCatalogo #btnApriModaleNuovo,
+#pannelloAssistenza #btnCercaPrenotazioni {
+    color: #fff4cf;
+}
+
+#pannelloCatalogo .tabellaAdmin td,
+#pannelloAssistenza .tabellaAdmin td {
+    color: #e2d7c5;
+}
+
+#pannelloCatalogo .tabellaAdmin strong,
+#pannelloCatalogo .tabellaAdmin code,
+#pannelloAssistenza .tabellaAdmin strong,
+#pannelloAssistenza .tabellaAdmin code {
+    color: #ffe89e;
+}
+
+.testoStatistiche{
+    color: var(--oro-rustico)
+}
+
+@media (max-width: 900px) {
+    #pannelloModerazione .barraOperazioni {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    #pannelloModerazione .campoElastico {
+        grid-column: 1 / -1;
+    }
+
+    #pannelloModerazione .barraOperazioni button {
+        width: 100%;
+        min-width: 0;
+    }
+
+    #corpoGestionePersonale .modificaPermessi {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #corpoGestionePersonale .selettorePermessi,
+    #corpoGestionePersonale .btnApplicaPermessi,
+    #corpoGestionePersonale .btnRevocaAdmin {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    #stanzaMuseo .ambiente3d {
+        position: relative;
+        width: 100%;
+        height: auto;
+        min-height: 100vh;
+        overflow: visible;
+        transform: none;
+        display: block;
+    }
+
+    #stanzaMuseo .ambiente3d > .superficie.soffitto,
+    #stanzaMuseo .ambiente3d > .superficie.pavimentoParquet,
+    #stanzaMuseo .ambiente3d > .superficie.pareteLaterale {
+        display: none;
+    }
+
+    #stanzaMuseo .ambiente3d .pareteLuci {
+        position: relative;
+        inset: auto;
+        width: 100%;
+        min-height: 100vh;
+        height: auto;
+        margin: 0;
+        padding: 12px;
+        box-sizing: border-box;
+        overflow: visible;
+    }
+
+    #stanzaMuseo .ambiente3d .pareteFondo,
+    #stanzaMuseo .ambiente3d .guscioMuseo {
+        width: 100%;
+        height: auto;
+        min-height: 0;
+        padding: 0;
+        overflow: visible !important;
+        background: transparent;
+        border: 0;
+        box-shadow: none;
+    }
+
+    #stanzaMuseo .ambiente3d #globaleAdmin,
+    #stanzaMuseo .ambiente3d .grigliaIndicatori,
+    #stanzaMuseo .ambiente3d .sistemaAdmin,
+    #stanzaMuseo .ambiente3d .contenitorePannelliAdmin,
+    #stanzaMuseo .ambiente3d .pannelloAdmin {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+    }
+
+    .testataMuseo:has(.logoAdmin) {
+        width: 100% !important;
+        box-sizing: border-box;
+        min-height: 126px;
+        padding: 12px;
+        align-items: flex-start;
+    }
+
+    .testataMuseo .logoAdmin {
+        width: min(365px, calc(100vw - 44px));
+        height: auto;
+        aspect-ratio: 425 / 145;
+        max-width: calc(100% - 44px);
+    }
+
+    .testataMuseo .menuAdmin {
+        position: absolute;
+        top: 62px;
+        left: 0;
+        right: 0;
+        width: 100%;
+        box-sizing: border-box;
+        margin: 0;
+        justify-content: flex-end;
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+
+    .testataMuseo .menuAdmin li {
+        flex: 0 0 auto;
+    }
+
+    .testataMuseo .menuAdmin .voceMenu {
+        min-height: 36px;
+        padding: 8px 12px;
+        font-size: 0.72rem;
+    }
+}
+
+#pannelloCollaboratori {
+    gap: 22px;
+    background: linear-gradient(145deg, rgba(36, 28, 21, 0.92), rgba(18, 14, 11, 0.82));
+    border: 1px solid rgba(212, 175, 55, 0.45);
+}
+
+.testataParete {
+    padding-bottom: 18px;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.titoloParete {
+    margin: 0 0 8px;
+    color: #ffe89e;
+    font-family: 'Cinzel', 'Georgia', serif;
+    font-size: 1.55rem;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+}
+
+.descrizioneParete {
+    margin: 0;
+    color: #d8c8ae;
+    line-height: 1.5;
+}
+
+.moduloStaff {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-bottom: 0;
+    background: rgba(10, 10, 10, 0.42);
+}
+
+.sottotitoloAntico {
+    margin: 0;
+    color: var(--oro-rustico);
+    font-family: 'Cinzel', 'Georgia', serif;
+    font-size: 1.05rem;
+    text-transform: uppercase;
+}
+
+.grigliaOperatori {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.grigliaOperatori .campoFiltro {
+    min-width: 0;
+}
+
+.moduloStaff .btnStaff {
+    align-self: flex-start;
+    min-width: 190px;
+}
+
+#pannelloCollaboratori .contenitoreTabella {
+    margin-top: 0;
+    border: 1px solid rgba(212, 175, 55, 0.25);
+}

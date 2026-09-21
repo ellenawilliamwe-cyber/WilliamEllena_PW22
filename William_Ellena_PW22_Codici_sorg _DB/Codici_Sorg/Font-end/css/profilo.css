@@ -1,0 +1,100 @@
+.centraturaProfilo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100%;
+    width: 100%;
+    padding: 40px 10px;
+    box-sizing: border-box;
+}
+
+.schedaProfilo {
+    width: 100%;
+    max-width: 520px;
+    display: flex;
+    flex-direction: column;
+}
+
+.riquadroProfilo {
+    max-width: 100%;
+    min-height: auto;
+    height: auto;
+    padding: 28px;
+}
+
+.spazioScheda {
+    margin-top: 25px;
+    min-height: auto;
+    padding: 30px;
+}
+
+.riepilogoAnagrafica {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    padding: 20px;
+    margin-bottom: 0;
+    border-left-color: var(--oro-rustico);
+}
+
+.infoProfilo {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--oro-rustico);
+}
+
+.infoProfilo strong {
+    font-weight: 600;
+}
+
+.infoProfilo span {
+    color: #ffffff;
+    font-family: 'Georgia', serif;
+    font-weight: 400;
+    margin-left: 4px;
+}
+
+.cellaEmail {
+    word-break: break-all;
+}
+
+.rigaTariffa {
+    grid-column: span 2;
+    margin-top: 10px;
+    border-top: 1px dashed rgba(212, 175, 55, 0.25);
+    padding-top: 12px;
+    color: var(--oro-rustico);
+    font-size: 0.9rem;
+}
+
+.rigaTariffa span {
+    color: #ffe89e;
+    font-family: 'Cinzel', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-left: 5px;
+}
+
+.bloccoPwd {
+    background: rgba(179, 45, 56, 0.05);
+    padding: 15px;
+    border-radius: 6px;
+    border: 1px dashed rgba(255, 71, 87, 0.3);
+    margin-top: 15px;
+}
+
+.bloccoPwd label {
+    color: #ff4757;
+    font-weight: 600;
+}
+
+.bloccoPwd input:focus {
+    border-color: #ff4757;
+    box-shadow: 0 0 8px rgba(255, 71, 87, 0.2);
+}
+
+@media (max-width: 480px) {
+    .rigaTariffa {
+        grid-column: span 1;
+    }
+}

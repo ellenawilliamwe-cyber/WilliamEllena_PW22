@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<div id="collezioneComponentiMuseo" style="display: none;">
+
+    <template id="modelloCardMostra">
+        <div class="contenitoreMostra">
+
+            <div class="sfondoMostra"></div>
+
+            <div class="scheda schedaMostra">
+                <div class="testataScheda">
+                    <h3 class="titoloMostra">Titolo Mostra</h3>
+                    <span class="etichettaStato disponibilitaMostra">Posti...</span>
+                </div>
+
+                <div class="testoDescrizioneMostra nascosto"></div>
+
+                <div class="piedeScheda">
+                    <p class="infoMeta infoMostra">Luogo | Data</p>
+                    <div class="etichettaPrezzo prezzoMostra">Prezzo: € 0.00</div>
+                    <button type="button" class="btnPrimario btnPrenota">Prenota Biglietto</button>
+                </div>
+            </div>
+
+            <div class="pergamenaMostra">
+                <div class="contenutoScorrevole">
+                    <h4 class="titoloDescrizione">Dettagli Esposizione</h4>
+                    <p class="testoDescrizione descrizioneMostraTesto">Descrizione...</p>
+                </div>
+            </div>
+
+        </div>
+    </template>
+
+    <template id="modelloStrutturaTabellaStorico">
+        <table class="tabellaAdmin tabellaStorico">
+            <thead>
+                <tr>
+                    <th>Identificativo</th>
+                    <th>Mostra / Evento</th>
+                    <th>Quantità</th>
+                    <th>Corrispettivo</th>
+                    <th>Stato Pagamento</th>
+                    <th>Azioni Riservate</th>
+                </tr>
+            </thead>
+            <tbody class="corpoTabellaStorico">
+            </tbody>
+        </table>
+    </template>
+
+
+    <template id="modelloRigaBigliettoUtente">
+        <tr class="rigaTabella">
+            <td><strong class="idPrenotazioneTesto">#PREN-0</strong></td>
+            <td class="mostraPrenotazione">Nome Mostra</td>
+            <td class="postiPrenotazione">0 ingressi</td>
+            <td><span class="prezzoInEvidenza prezzoPrenotazione">€ 0.00</span></td>
+            <td><span class="etichettaStatoRiga etichetta statoBiglietto">COMPLETA</span></td>
+            <td>
+                <div class="gruppoPulsanti">
+                    <button type="button" class="btnAnnullaBiglietto btnMiniVelluto">
+                        Annulla
+                    </button>
+                </div>
+            </td>
+        </tr>
+    </template>
+</div>
+
+<template id="modelloRigaRicercaUtente">
+    <tr class="rigaTabella rigaUtente">
+        <td><strong class="idTesto">#USER-0</strong></td>
+        <td class="nomeTesto">Nome Visitatore</td>
+        <td><code class="emailTesto">email@esempio.com</code></td>
+        <td><span class="etichetta sessoTesto">M</span></td>
+        <td class="statoTesto">Standard</td>
+        <td>
+            <button class="btnPericolo btnEliminaDiretto">Elimina Account</button>
+        </td>
+    </tr>
+</template>
+
+
+<template id="modelloRigaEventoCrud">
+    <tr class="rigaTabella rigaMostra">
+        <td><strong class="idEventoTesto">#0</strong></td>
+        <td class="titoloEvento">Titolo Mostra</td>
+        <td><span class="etichetta etichettaTipo tipoEvento">MOSTRA</span></td>
+        <td class="dataEvento">0000-00-00</td>
+        <td class="luogoEvento">Sala X</td>
+        <td class="postiEvento">0 / 0</td>
+        <td><span class="prezzoInEvidenza prezzoEvento">€ 0.00</span></td>
+        <td class="azioniCrud">
+            <button class="btnModifica">Modifica</button>
+            <button class="btnPericolo btnElimina">Elimina</button>
+        </td>
+    </tr>
+</template>
+
+
+<template id="modelloRigaRegistroFiscale">
+    <tr class="rigaTabella rigaFiscale">
+        <td><strong class="idPagamentoTesto">#PAG-0</strong></td>
+        <td class="idPrenotazioneTesto">#PREN-0</td>
+        <td class="idUtenteTesto">ID: 0</td>
+        <td><span class="prezzoInEvidenza importoTesto">€ 0.00</span></td>
+        <td class="metodoPagamento">CARTA</td>
+        <td><code class="codicePagamento">TX-0000</code></td>
+        <td><span class="statoFiscale etichetta">STATO</span></td>
+        <td><span class="titoloMostra">Titolo Mostra</span></td>
+    </tr>
+</template>
+
+<template id="modelloRigaOperatoreRbac">
+    <tr class="rigaTabella rigaCollaboratore">
+        <td><strong class="idAdminTesto">#ADMIN-0</strong></td>
+        <td class="nomeAdmin">Nome Operatore</td>
+        <td><code class="emailAdmin">admin@museo.it</code></td>
+        <td class="modificaPermessi">
+            <select class="selettorePermessi campoSelezione">
+                <option value="TOTALE">Controllo TOTALE</option>
+                <option value="LETTURA">Sola LETTURA</option>
+                <option value="MODERATORE">MODERATORE</option>
+            </select>
+            <button class="btnPrimario btnApplicaPermessi">Applica</button>
+        </td>
+        <td class="revocaAccesso">
+            <button class="btnPericolo btnRevocaAdmin">Revoca e Rimuovi</button>
+        </td>
+    </tr>
+</template>
+
+<template id="modelloRigaAssistenzaPrenotazione">
+    <tr class="rigaTabella rigaAssistenza">
+        <td><strong class="idAssistenzaTesto">#PREN-0</strong></td>
+        <td><code class="emailAssistenza">user@email.com</code></td>
+        <td class="mostraAssistenza">Titolo Mostra</td>
+        <td><span class="prezzoInEvidenza prezzoAssistenza">€ 0.00</span></td>
+        <td class="postiAssistenza">0 biglietti</td>
+        <td><span class="etichetta statoAssistenza">ATTIVA</span></td>
+        <td class="azioneRevoca">
+            <button class="btnPericolo btnRevocaUfficio">Revoca e Storna</button>
+        </td>
+    </tr>
+</template>
+
+</div>

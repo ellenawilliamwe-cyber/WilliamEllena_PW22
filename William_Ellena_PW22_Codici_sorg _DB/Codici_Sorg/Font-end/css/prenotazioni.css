@@ -1,0 +1,79 @@
+
+.tabellaStorico {
+    width: 100%;
+    min-width: 500px;
+}
+
+.tabellaStorico td {
+    font-family: 'Georgia', serif;
+    font-size: 0.85rem;
+    padding: 14px 16px;
+    color: #e2d7c5;
+    border-bottom: none;
+}
+
+.tabellaStorico tbody tr:nth-child(even) {
+    background-color: rgba(36, 28, 21, 0.25);
+}
+
+.tabellaStorico button,
+.tabellaStorico .btnAnnullaBiglietto {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 28px;
+    padding: 0 12px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-family: 'Cinzel', serif;
+    border-radius: 15px;
+    border: 1px solid rgba(212, 175, 55, 0.5);
+    background: linear-gradient(135deg, #a32a31 0%, #6e161c 100%);
+    color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.tabellaStorico button:hover,
+.tabellaStorico .btnAnnullaBiglietto:hover {
+    filter: brightness(1.3);
+    box-shadow: 0 0 8px rgba(255, 71, 87, 0.4);
+}
+
+#paginaProfilo .scheda.schedaMostra,
+#paginaPrenotazioni .scheda.schedaMostra,
+.riquadroProfilo {
+    background: rgba(18, 14, 11, 0.45);
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    border-radius: 12px;
+    max-width: 100%;
+    min-height: auto;
+    height: auto;
+    padding: 35px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.95);
+    transform: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#paginaProfilo .scheda.schedaMostra:hover,
+#paginaPrenotazioni .scheda.schedaMostra:hover {
+    border-color: rgba(212, 175, 55, 0.55);
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.98), 0 0 20px rgba(214, 175, 55, 0.12);
+}
+
+#paginaPrenotazioni,
+#paginaPrenotazioni p,
+#paginaPrenotazioni strong,
+#paginaPrenotazioni span,
+#paginaPrenotazioni td,
+#paginaPrenotazioni th,
+#paginaPrenotazioni .messaggioNessunDato {
+    color: var(--testo-oro, #ffe89e);
+}
+
+#paginaPrenotazioni .tabellaStorico th {
+    color: var(--testo-oro, #ffe89e);
+    background-color: rgba(36, 28, 21, 0.9);
+}

@@ -1,0 +1,2345 @@
+
+:root {
+    --colore-velluto: #800000;
+    --velluto-luce: #a30000;
+    --velluto-ombra: #4d0000;
+    --legno-stalla: #382c20;
+    --legno-scuro: #241c15;
+    --legno-chiaro: #5c4033;
+    --oro-rustico: #d4af37;
+    --testo-oro: #ffe89e;
+}
+
+@media (min-width: 769px) {
+    #stanzaMuseo {
+        overflow: hidden;
+        perspective: none;
+        transform-style: flat;
+    }
+
+    #stanzaMuseo .ambiente3d {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        transform: none;
+        transform-style: flat;
+    }
+
+    #stanzaMuseo .superficie {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transform: none;
+        transform-style: flat;
+    }
+
+    #stanzaMuseo .soffitto {
+        z-index: 2;
+        clip-path: polygon(0 0, 100% 0, 84% 18%, 16% 18%);
+        background: repeating-linear-gradient(90deg, rgba(255, 232, 158, 0.04) 0 1px, transparent 1px 12%), linear-gradient(#2b1b1b, #120c0c);
+    }
+
+    #stanzaMuseo .pavimentoParquet {
+        z-index: 2;
+        clip-path: polygon(15% 82%, 85% 82%, 100% 100%, 0 100%);
+        background: repeating-linear-gradient(90deg, transparent 0 9.8%, rgba(9, 4, 3, 0.5) 9.8% 10%), repeating-linear-gradient(176deg, transparent 0 52px, rgba(255, 196, 100, 0.08) 53px 55px), linear-gradient(to top, #4b2617, #1c0f0a);
+    }
+
+    #stanzaMuseo .pareteLaterale.sinistra {
+        z-index: 2;
+        clip-path: polygon(0 0, 16% 18%, 16% 82%, 0 100%);
+        background: linear-gradient(to right, #120303, #3a1210 78%, #1a0707);
+    }
+
+    #stanzaMuseo .pareteLaterale.destra {
+        z-index: 2;
+        clip-path: polygon(100% 0, 100% 100%, 84% 82%, 84% 18%);
+        background: linear-gradient(to left, #120303, #3a1210 78%, #1a0707);
+    }
+
+    #stanzaMuseo .pareteLuci {
+        top: 18%;
+        left: 16%;
+        width: 68%;
+        height: 64%;
+        padding: 0;
+        transform: none;
+        overflow: visible;
+        z-index: 3;
+    }
+
+    #stanzaMuseo .pareteFondo {
+        position: relative;
+        inset: auto;
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        transform: none;
+        overflow: hidden;
+        background: transparent;
+    }
+
+    #stanzaMuseo .gruppoFaretti {
+        position: absolute;
+        top: 5%;
+        left: 16%;
+        width: 68%;
+        height: 25%;
+        padding: 0;
+        margin: 0;
+        transform: none;
+        transform-style: flat;
+        align-items: flex-start;
+        overflow: visible;
+        z-index: 4;
+    }
+
+    #stanzaMuseo .gruppoFarettiOverlay {
+        position: absolute;
+        top: 3%;
+        left: 16%;
+        width: 68%;
+        height: 25%;
+        z-index: 10 !important;
+        pointer-events: none;
+    }
+
+    #stanzaMuseo .luceSoffitto {
+        position: relative;
+        width: 30px;
+        height: 14px;
+        transform: none;
+        z-index: 1;
+        box-shadow: 0 0 16px 6px rgba(255, 232, 158, 0.42), inset 0 0 7px rgba(255, 255, 255, 0.8);
+    }
+
+    #stanzaMuseo .luceSoffitto::before {
+        content: "";
+        position: absolute;
+        top: 8px;
+        left: 50%;
+        width: 210px;
+        height: 300px;
+        transform: translateX(-50%);
+        clip-path: polygon(42% 0, 58% 0, 100% 100%, 0 100%);
+        background: linear-gradient(to bottom, rgba(255, 238, 174, 0.2), rgba(255, 218, 120, 0.035) 58%, transparent);
+        filter: blur(10px);
+        pointer-events: none;
+        z-index: -1;
+    }
+
+    #stanzaMuseo .gruppoFarettiOverlay {
+        top: -8% !important;
+        left: 16% !important;
+        width: 68% !important;
+        height: 60% !important;
+        z-index: 50 !important;
+        isolation: isolate;
+        overflow: visible !important;
+    }
+
+    #stanzaMuseo .gruppoFarettiOverlay::before {
+        content: "";
+        position: absolute;
+        top: 14px;
+        left: 0;
+        width: 100%;
+        height: 420px;
+        z-index: 0;
+        pointer-events: none;
+        background:
+            linear-gradient(165deg, transparent 0 8%, rgba(255, 238, 174, 0.12) 17%, transparent 33%),
+            linear-gradient(165deg, transparent 24%, rgba(255, 238, 174, 0.12) 33%, transparent 49%),
+            linear-gradient(165deg, transparent 48%, rgba(255, 238, 174, 0.12) 57%, transparent 73%),
+            linear-gradient(165deg, transparent 72%, rgba(255, 238, 174, 0.12) 81%, transparent 97%);
+        filter: blur(14px);
+    }
+
+    #stanzaMuseo .gruppoFarettiOverlay::before {
+        content: "";
+        position: absolute;
+        top: 10px;
+        left: 0;
+        width: 100%;
+        height: 360px;
+        pointer-events: none;
+        z-index: 0;
+        background:
+            linear-gradient(166deg, transparent 0 10%, rgba(255, 238, 174, 0.08) 18%, transparent 38%),
+            linear-gradient(166deg, transparent 27%, rgba(255, 238, 174, 0.08) 35%, transparent 55%),
+            linear-gradient(166deg, transparent 45%, rgba(255, 238, 174, 0.08) 53%, transparent 73%),
+            linear-gradient(166deg, transparent 64%, rgba(255, 238, 174, 0.08) 72%, transparent 92%);
+        filter: blur(12px);
+    }
+
+    #stanzaMuseo .gruppoFarettiOverlay .luceSoffitto {
+        position: relative;
+        z-index: 1;
+        box-shadow: 0 0 16px 6px rgba(255, 232, 158, 0.42), inset 0 0 7px rgba(255, 255, 255, 0.8);
+    }
+
+    #stanzaMuseo .gruppoFarettiOverlay .luceSoffitto::before {
+        z-index: 2 !important;
+        display: block;
+        opacity: 1;
+        background: linear-gradient(to bottom, rgba(255, 238, 174, 0.2), rgba(255, 218, 120, 0.035) 58%, transparent);
+        filter: blur(10px);
+    }
+}
+
+@media (min-width: 520px) and (max-width: 768px) {
+    #contenitoreEventi.grigliaEventi {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+        padding: 12px 0;
+    }
+
+    #contenitoreEventi .schedaMostra {
+        min-width: 0;
+        max-width: none;
+        border-width: 12px;
+        padding: 12px;
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scrollbar-width: auto;
+}
+
+.nascosto,
+.nascosto {
+    display: none;
+}
+
+@media (min-width: 769px) {
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #000;
+        color: #fff;
+        overflow: hidden;
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .guscioMuseo {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    #stanzaMuseo {
+        flex: 1;
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+        display: flex;
+        position: relative;
+        justify-content: center;
+        align-items: center;
+        perspective: 6000px;
+        perspective-origin: center center;
+        transform-style: preserve-3d;
+    }
+
+    .ambiente3d {
+        position: relative;
+        width: 900px;
+        height: 900px;
+        transform-style: preserve-3d;
+    }
+
+    .superficie {
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        top: 50%;
+        left: 50%;
+        pointer-events: none;
+        backface-visibility: hidden;
+    }
+
+    .pagina,
+    #paginaMostre,
+    #paginaProfilo,
+    #paginaPrenotazioni,
+    #globaleAdmin,
+    #paginaCheckout {
+        width: 100%;
+        height: 100%;
+        max-height: calc(100vh - 100px);
+        overflow-y: auto;
+        box-sizing: border-box;
+        padding-bottom: 40px;
+    }
+
+    #paginaCheckout.page {
+        padding: 20px 20px 60px 20px;
+    }
+
+    .schedaPagamento {
+        margin: 10px auto 40px auto;
+    }
+}
+
+.testoDescrizioneMostra{
+    color: var(--oro-rustico);
+}
+
+::-webkit-scrollbar {
+    width: 30px;
+}
+
+::-webkit-scrollbar:vertical {
+    width: 30px;
+}
+
+::-webkit-scrollbar-track:vertical {
+    background: transparent;
+    background-image: linear-gradient(to right, transparent 0%, transparent 14.5px, var(--oro-rustico, #d4af37) 14.5px, var(--oro-rustico, #d4af37) 15.5px, transparent 15.5px, transparent 100%);
+    opacity: 0.4;
+}
+
+::-webkit-scrollbar-thumb {
+    background-image: url('../icone/Scroll_bar.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-color: transparent;
+    border-left: 0px solid transparent;
+    border-right: 15px solid transparent;
+    min-height: 12px;
+}
+
+::-webkit-scrollbar-thumb:vertical {
+    background-image: url('../icone/Scroll_bar.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-color: transparent;
+    border-left: 0px solid transparent;
+    border-right: 15px solid transparent;
+    min-height: 12px;
+    transition: border 0.3s ease-out, filter 0.3s ease-out;
+}
+
+::-webkit-scrollbar-thumb:vertical:hover {
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    filter: brightness(1.3) drop-shadow(0 0 4px var(--oro-rustico, #d4af37));
+    cursor: pointer;
+}
+
+.barraScorrimento {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    z-index: 40;
+    height: 18px;
+    display: none;
+    background: rgba(20, 15, 12, 0.65);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-top: 1px solid rgba(212, 175, 55, 0.25);
+    pointer-events: auto;
+}
+
+.contenutoScorrimento {
+    height: 1px;
+    display: block;
+}
+
+.contenitoreTabella,
+#paginaMostre,
+#contenitoreEventi {
+    overflow-x: auto;
+    position: relative;
+}
+
+.contenitoreTabella::-webkit-scrollbar:horizontal,
+#paginaMostre::-webkit-scrollbar:horizontal,
+#contenitoreEventi::-webkit-scrollbar:horizontal,
+div::-webkit-scrollbar:horizontal,
+section::-webkit-scrollbar:horizontal {
+    height: 0px;
+    width: 0px;
+    display: none;
+    background: transparent;
+}
+
+.barraScorrimento::-webkit-scrollbar:horizontal {
+    height: 12px;
+    display: block;
+}
+
+.barraScorrimento::-webkit-scrollbar-track:horizontal {
+    background: transparent;
+}
+
+.barraScorrimento::-webkit-scrollbar-thumb:horizontal {
+    background: linear-gradient(to bottom, #ffe89e 0%, #d4af37 40%, #b8942a 100%);
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.4);
+}
+
+.barraScorrimento::-webkit-scrollbar-thumb:horizontal:hover {
+    filter: brightness(1.2) drop-shadow(0 0 4px #d4af37);
+    cursor: pointer;
+}
+
+.tabellaAdmin {
+    min-width: 1200px;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tabellaStorico {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tabellaAdmin th,
+.tabellaAdmin td,
+.tabellaStorico td {
+    white-space: nowrap;
+    padding: 14px 16px;
+}
+
+.tabellaAdmin table,
+.contenitoreTabella table {
+    table-layout: auto;
+    width: max-content;
+}
+
+.contenitoreTabella {
+    width: 100%;
+    overflow-x: auto;
+    position: relative;
+}
+
+.barraScorrimento::-webkit-scrollbar {
+    height: 12px;
+}
+
+.barraScorrimento::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.barraScorrimento::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #ffe89e 0%, #d4af37 40%, #b8942a 100%);
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.4);
+    transition: filter 0.2s ease;
+}
+
+.barraScorrimento::-webkit-scrollbar-thumb:hover {
+    filter: brightness(1.2) drop-shadow(0 0 4px #d4af37);
+    cursor: pointer;
+}
+
+.btnPagamento,
+.btnCerca,
+.btnPrimario,
+.btnRustico,
+.btnAzione,
+.btnLogout,
+.btnLogoutTeatrale,
+.btnPrenota,
+.btnPrimario.btnPrenota,
+#btnLogoutClick,
+#btnLogoutAdminClick,
+#btnAdminCercaUtente,
+#btnAdminEliminaUtente,
+#btnAdminRisolviCollisione,
+#btnCercaPrenotazioni,
+.moduloPagamento button[type="submit"],
+.tabellaStorico button,
+.tabellaStorico .btnAnnullaPrenotazione {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #b32d38 0%, #7a1b22 100%);
+    border: 1px solid var(--oro-rustico, #d4af37);
+    color: #ffffff;
+    height: 48px;
+    padding: 0 24px;
+    border-radius: 8px;
+    font-family: 'Cinzel', 'Georgia', serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
+    cursor: pointer;
+    white-space: nowrap;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    outline: none;
+    filter: brightness(1);
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.btnMenu,
+.menuMobile {
+    display: none;
+}
+
+.btnPagamento:hover,
+.btnCerca:hover,
+.btnPrimario:hover,
+.btnRustico:hover,
+.btnAzione:hover,
+.btnLogout:hover,
+.btnLogoutTeatrale:hover,
+.btnPrenota:hover,
+.btnPrimario.btnPrenota:hover,
+#btnLogoutClick:hover,
+#btnLogoutAdminClick:hover,
+#btnAdminCercaUtente:hover,
+#btnAdminEliminaUtente:hover,
+#btnAdminRisolviCollisione:hover,
+#btnCercaPrenotazioni:hover,
+.sistemaAdmin button:hover,
+.moduloPagamento button[type="submit"]:hover,
+.tabellaStorico button:hover {
+    color: #ffffff;
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 6px 20px rgba(214, 175, 55, 0.4);
+    filter: brightness(1.25);
+}
+
+.btnPagamento:active,
+.btnCerca:active,
+.btnPrimario:active,
+.btnRustico:active,
+.btnAzione:active,
+.btnLogout:active,
+.btnLogoutTeatrale:active,
+.btnPrenota:active,
+.btnPrimario.btnPrenota:active,
+#btnLogoutClick:active,
+#btnLogoutAdminClick:active,
+#btnAdminCercaUtente:active,
+#btnAdminEliminaUtente:active,
+#btnAdminRisolviCollisione:active,
+#btnCercaPrenotazioni:active,
+.sistemaAdmin button:active,
+.moduloPagamento button[type="submit"]:active,
+.tabellaStorico button:active {
+    transform: translateY(-1px) scale(0.97);
+    filter: brightness(0.9);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.btnChiudiFisso {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(20, 15, 12, 0.9);
+    background-image: none;
+    border: 2px solid var(--oro-rustico, #d4af37);
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+    color: var(--oro-rustico, #d4af37);
+    font-family: 'Cinzel', 'Georgia', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-align: center;
+    line-height: 1;
+    z-index: 120;
+    cursor: pointer;
+    user-select: none;
+    pointer-events: auto;
+    transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.btnChiudiFisso:hover {
+    background-color: #b32d38;
+    color: #ffffff;
+    border-color: #ffffff;
+    transform: scale(1.08);
+}
+
+.btnCambiaAccesso {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    color: #ffe89e;
+    height: 40px;
+    padding: 0 24px;
+    border-radius: 6px;
+    font-family: 'Cinzel', 'Georgia', serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    cursor: pointer;
+    margin-top: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+    text-shadow: none;
+    background-image: none;
+    width: auto;
+    min-width: 160px;
+    transition: all 0.25s ease;
+}
+
+.btnCambiaAccesso:hover {
+    background: var(--oro-rustico, #d4af37);
+    color: var(--legno-scuro, #241c15);
+    border-color: var(--oro-rustico, #d4af37);
+    box-shadow: 0 0 12px rgba(214, 175, 55, 0.4);
+    transform: translateY(-1px);
+}
+
+.btnCambiaAccesso:active {
+    transform: translateY(1px);
+}
+
+.btnChiudiDescrizione,
+#btnChiudiModale,
+#btnChiudiDinamicoGlobale,
+.btnChiudiFisso {
+    background-image: none;
+    background-color: rgba(20, 15, 12, 0.9);
+    border: 2px solid var(--oro-rustico, #d4af37);
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+    color: var(--oro-rustico, #d4af37);
+    font-family: 'Cinzel', 'Georgia', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-align: center;
+    line-height: 1;
+    z-index: 120;
+    cursor: pointer;
+    user-select: none;
+    pointer-events: auto;
+    transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.btnChiudiDescrizione:hover,
+#btnChiudiModale:hover,
+#btnChiudiDinamicoGlobale:hover,
+.btnChiudiFisso:hover {
+    background-color: #b32d38;
+    color: #ffffff;
+    border-color: #ffffff;
+    transform: scale(1.08);
+    background-image: url('../icone/chiudi.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+.contenitoreCambioAccesso {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    border-top: 1px dashed rgba(212, 175, 55, 0.2);
+    padding-top: 15px;
+    box-sizing: border-box;
+}
+
+.invitoAccesso {
+    font-family: 'Georgia', serif;
+    font-size: 0.88rem;
+    color: #bfae93;
+    margin: 0 0 5px 0;
+    text-align: center;
+}
+
+#siparioContenitore {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    z-index: 100;
+    display: flex;
+    overflow: hidden;
+    perspective: 1000px;
+    pointer-events: none;
+}
+
+.tenda {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    transition: transform 2.2s cubic-bezier(0.25, 1, 0.5, 1);
+    pointer-events: auto;
+}
+
+#tendaSinistra {
+    transform-origin: top left;
+    direction: rtl;
+    box-shadow: 10px 0 25px rgba(0, 0, 0, 0.6);
+    position: relative;
+    z-index: 2;
+    animation: ondaTendaIntera 5.5s ease-in-out infinite alternate;
+}
+
+#tendaDestra {
+    transform-origin: top right;
+    direction: rtl;
+    margin-left: 6.1px;
+    position: relative;
+    z-index: 1;
+}
+
+.strisciaTenda {
+    flex: 1;
+    height: 100%;
+    background: linear-gradient(90deg, #750202 0%, var(--colore-velluto) 15%, #9c0707 50%, var(--velluto-luce) 65%, #9c0707 75%, var(--colore-velluto) 100%, #750202 100%);
+    animation: ondulazioneVento ease-in-out infinite alternate;
+    transform: scaleX(1.05);
+    transform-origin: top center;
+    margin-left: -30px;
+    margin-right: -30px;
+    position: relative;
+    overflow: visible;
+}
+
+.strisciaTenda::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 12px;
+    background: linear-gradient(90deg, #8a6f27 0%, #b89742 20%, #d4af37 35%, #dbc052 50%, #d4af37 65%, #b89742 80%, #8a6f27 100%);
+    box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.4), 0 2px 4px rgba(0, 0, 0, 0.5);
+    border-bottom: 1px solid #ffe89e;
+    pointer-events: none;
+}
+
+.aperturaSipario #tendaSinistra {
+    animation: esciASelezionata 2.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.aperturaSipario #tendaDestra {
+    transform: translateX(100%) rotateY(5deg);
+}
+
+.chiusuraSipario #tendaSinistra {
+    animation: rientraASelezionata 2.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.chiusuraSipario #tendaDestra {
+    transform: translateX(0) rotateY(0deg);
+    transition: transform 2.2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.chiusuraSipario#siparioContenitore,
+.chiusuraSipario {
+    pointer-events: auto;
+    z-index: 100;
+}
+
+.ambiente3d {
+    position: relative;
+    width: 900px;
+    height: 900px;
+    transform-style: preserve-3d;
+}
+
+.superficie {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 50%;
+    left: 50%;
+    pointer-events: none;
+    backface-visibility: hidden;
+}
+
+.soffitto {
+    background: #1f1f1f;
+    border-bottom: 4px solid #000;
+    transform-origin: center top;
+    transform: translate(-50%, -50%) rotateX(-90deg) translateY(-50vh);
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: 20px;
+    overflow: visible;
+}
+
+.pavimentoParquet {
+    background-color: #2b1c15;
+    background-image: linear-gradient(135deg, rgba(36, 28, 21, 0.4) 25%, transparent 25%), linear-gradient(225deg, rgba(36, 28, 21, 0.4) 25%, transparent 25%), linear-gradient(45deg, rgba(61, 40, 31, 0.3) 25%, transparent 25%), linear-gradient(315deg, rgba(61, 40, 31, 0.3) 25%, transparent 25%);
+    background-size: 60px 60px;
+    transform-origin: center bottom;
+    transform: translate(-50%, -50%) rotateX(90deg) translateY(50vh);
+}
+
+.pareteLaterale.sinistra {
+    background: linear-gradient(to right, #1a110d, #3a2f24);
+    transform-origin: left center;
+    transform: translate(-50%, -50%) rotateY(90deg) translateX(-50vw);
+}
+
+.pareteLaterale.destra {
+    background: linear-gradient(to left, #1a110d, #3a2f24);
+    transform-origin: right center;
+    transform: translate(-50%, -50%) rotateY(-90deg) translateX(50vw);
+}
+
+.pareteLuci,
+.pareteFondo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 91vw;
+    height: 90.8vh;
+    transform: translate(-50%, -50%) translateZ(0px);
+    background-color: #4a3319;
+    background-image: repeating-linear-gradient(90deg, transparent, transparent 140px, rgba(0, 0, 0, 0.25) 140px, rgba(0, 0, 0, 0.27) 142px);
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transform-style: preserve-3d;
+}
+
+.pareteLuci {
+    overflow: visible;
+}
+
+.gruppoFaretti {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100vw;
+    height: 60px;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    overflow: visible;
+    pointer-events: none;
+    transform: translate(-50%, -50%) rotateX(-105deg) translateY(-50vh) translateZ(10px);
+    transform-style: preserve-3d;
+    z-index: 4;
+}
+
+.luceSoffitto {
+    width: 38px;
+    height: 22px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 2px solid #d4af37;
+    transform: rotateX(60deg);
+    transform-origin: top center;
+    transform-style: preserve-3d;
+    box-shadow: 0px 30px 100px 45px rgba(255, 235, 170, 0.8),
+        0px 8px 40px 20px rgba(255, 220, 130, 0.5),
+        inset 0 0 15px rgba(255, 235, 170, 1);
+    filter: drop-shadow(0 0 14px rgba(255, 235, 170, 0.8)) brightness(1.3);
+}
+
+.luceSoffitto::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%) rotateX(-45deg);
+
+    width: 28px;
+    height: 12px;
+    background: #ffffff;
+    border-radius: 50%;
+    border: 1px solid #d4af37;
+    box-shadow: 0px 30px 100px 50px rgba(255, 235, 170, 0.75),
+        0px 8px 50px 25px rgba(255, 235, 170, 0.4),
+        0 0 15px #ffffff;
+
+    filter: drop-shadow(0 0 10px rgba(255, 235, 170, 0.5));
+}
+
+.contenitoreMostra.aperto~.gruppoFaretti,
+.aperto .gruppoFaretti {
+    z-index: 1;
+    opacity: 0.3;
+    transition: opacity 0.3s ease, z-index 0.3s ease;
+}
+
+.testataMuseo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px dashed rgba(212, 175, 55, 0.3);
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.logoMuseo {
+    position: absolute;
+    top: 10px;
+    left: 16px;
+    display: inline-flex;
+    align-items: center;
+    width: 425px;
+    height: 145px;
+    pointer-events: none;
+    user-select: none;
+}
+
+.logoMuseo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+#paginaMostre h1 {
+    color: var(--testo-oro, #ffe89e);
+}
+
+#paginaProfilo {
+    scrollbar-width: auto;
+}
+
+#paginaProfilo::-webkit-scrollbar {
+    width: 30px;
+}
+
+#paginaProfilo::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+#paginaProfilo::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    background-image: url('../icone/Scroll_bar.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 0;
+    min-height: 28px;
+}
+
+.guscioMuseo:has(#paginaProfilo:not(.nascosto)) {
+    overflow: hidden !important;
+}
+
+.linkMenu {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    max-width: 100%;
+}
+
+.menuNav {
+    margin-right: 0;
+    margin-left: auto;
+    max-width: calc(100% - 190px);
+}
+
+@media (min-width: 769px) {
+    .menuNav {
+        min-height: 86px;
+        align-self: flex-start;
+        padding-bottom: 38px;
+        box-sizing: border-box;
+    }
+}
+
+.voceMenu {
+    color: var(--oro-rustico);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.voceMenu:hover {
+    color: #fff;
+}
+
+.etichettaUtente {
+    background-color: var(--oro-rustico);
+    padding: 0.5rem 1rem;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    white-space: nowrap;
+    color: var(--testo-oro);
+}
+
+.btnAccedi {
+    background-image: url('../icone/bottone_accedi.png');
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    color: #f6eac2;
+    font-family: 'Cinzel', 'Georgia', serif;
+    font-size: 1.1rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    width: 308px;
+    height: 99px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 2px;
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.6));
+}
+
+.btnAccedi:hover {
+    color: #ffffff;
+    filter: drop-shadow(0 6px 15px rgba(212, 175, 55, 0.4)) brightness(1.2);
+    transform: scale(1.02);
+}
+
+.btnAccedi:active {
+    transform: scale(0.98);
+}
+
+#notificheContenitore {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 90;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.notifica {
+    background: linear-gradient(135deg, #f2e3c6 0%, #e6cf9c 100%);
+    border: 2px solid var(--oro-rustico, #d4af37);
+    color: #3d2a14;
+    font-family: 'Georgia', serif;
+    font-size: 0.95rem;
+    font-weight: bold;
+    padding: 1rem 1.5rem;
+    border-radius: 6px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), inset 0 0 10px rgba(184, 134, 11, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 280px;
+    max-width: 380px;
+    animation: slideInToast 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.notifica.errore {
+    background: linear-gradient(135deg, #4a1519 0%, #2a0b0d 100%);
+    border: 2px solid #ff4757;
+    color: #ffcccc;
+}
+
+.custom-toast {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 300px;
+    max-width: min(440px, calc(100vw - 32px));
+    padding: 16px 20px;
+    border: 2px solid var(--oro-rustico, #d4af37);
+    border-radius: 8px;
+    background: linear-gradient(135deg, #f2e3c6 0%, #e6cf9c 100%);
+    color: #3d2a14;
+    font-family: 'Georgia', serif;
+    font-size: 1rem;
+    font-weight: bold;
+    line-height: 1.35;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.65), inset 0 0 10px rgba(184, 134, 11, 0.2);
+    animation: slideInToast 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.custom-toast.errore {
+    background: linear-gradient(135deg, #4a1519 0%, #2a0b0d 100%);
+    border-color: #ff4757;
+    color: #ffcccc;
+}
+
+.iconaNotifica {
+    display: none;
+}
+
+.testoNotifica {
+    flex: 1;
+}
+
+#authBox {
+    position: absolute;
+    z-index: 5;
+    border: 3px solid var(--oro-rustico);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    border-radius: 12px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9);
+    background-image: url('../icone/sfondo_reg.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    aspect-ratio: 1 / 1;
+    width: 95%;
+    max-width: 1000px;
+    height: auto;
+    max-height: 90vh;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    opacity: 0;
+}
+
+#authBox.visibile {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.moduloAccesso {
+    width: 100%;
+    height: 50%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    animation: sfumaturaEntrataForm 0.4s ease-out;
+}
+
+#authBox .moduloAccesso.nascosto,
+#authBox .moduloAccesso.hidden,
+#moduloLoginSchema.nascosto,
+#moduloLoginSchema.hidden,
+#moduloRegistrazioneSchema.nascosto,
+#moduloRegistrazioneSchema.hidden {
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+    height: 0;
+    max-height: 0;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    border: none;
+}
+
+#authBox .moduloAccesso:not(.nascosto):not(.nascosto),
+#moduloLoginSchema:not(.nascosto):not(.nascosto),
+#moduloRegistrazioneSchema:not(.nascosto):not(.nascosto) {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+    opacity: 1;
+    visibility: visible;
+}
+
+.loginEmail {
+    background: rgba(255, 255, 255, 0.25);
+    border: 1px solid rgba(74, 51, 25, 0.3);
+    border-radius: 4px;
+    color: #2b1c15;
+    font-family: 'Georgia', serif;
+    font-size: 1rem;
+}
+
+.moduloAccesso h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    color: var(--oro-rustico);
+    font-size: 1.5rem;
+}
+
+.moduloAccesso input {
+    width: 60%;
+    height: 15%;
+    padding: 2%;
+    margin-bottom: 20px;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--legno-chiaro);
+    color: #fff;
+    border-radius: 6px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.moduloAccesso input:focus {
+    border-color: var(--oro-rustico);
+}
+
+.moduloAccesso p {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: #ccc;
+}
+
+.moduloAccesso a {
+    color: var(--oro-rustico);
+    text-decoration: none;
+}
+
+.moduloAccesso a:hover {
+    text-decoration: underline;
+}
+
+#authBox .btnChiudiAccesso {
+    width: 38px;
+    height: 38px;
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    background-color: rgba(20, 15, 12, 0.9);
+    border: 1px solid var(--oro-rustico, #d4af37);
+    border-radius: 50%;
+    color: var(--oro-rustico, #d4af37);
+    font-family: 'Cinzel', 'Georgia', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-shadow: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    outline: none;
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+#authBox .btnChiudiAccesso:hover {
+    transform: scale(1.12) rotate(180deg);
+    background-color: #b32d38;
+    color: #ffffff;
+    box-shadow: 0 0 12px rgba(214, 175, 55, 0.5);
+    border-color: #ffffff;
+}
+
+#authBox .btnChiudiAccesso:active {
+    transform: scale(0.94) rotate(90deg);
+    filter: brightness(0.8);
+}
+
+.testoCambiaAccesso {
+    text-align: center;
+    margin-top: 20px;
+    font-family: 'Georgia', serif;
+    font-size: 1.3rem;
+    color: var(--oro-rustico);
+    font-weight: 600;
+    width: 100%;
+}
+
+.testoCambiaAccesso a {
+    color: #b32d2d;
+    text-decoration: none;
+    font-weight: 700;
+    border-bottom: 1px dashed #b32d38;
+    transition: color 0.2s ease, border-color 0.2s ease;
+    margin-left: 4px;
+}
+
+.testoCambiaAccesso a:hover {
+    color: #7a1b22;
+    border-color: #7a1b22;
+}
+
+.casellaSpunta {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+    margin: 10px 0 15px 0;
+    width: 100%;
+    max-width: 340px;
+    cursor: pointer;
+    position: relative;
+    border: none;
+    padding: 0;
+}
+
+.casellaSpunta input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    min-height: 20px;
+    background-color: rgba(10, 10, 10, 0.9);
+    border: 1px solid rgba(212, 175, 55, 0.5);
+    border-radius: 4px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    margin: 0;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.casellaSpunta input[type="checkbox"]:hover {
+    border-color: var(--oro-rustico, #d4af37);
+    box-shadow: 0 0 8px rgba(214, 175, 55, 0.5), inset 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.casellaSpunta input[type="checkbox"]:checked {
+    background: linear-gradient(135deg, #b32d38 0%, #7a1b22 100%);
+    border-color: var(--oro-rustico, #d4af37);
+    box-shadow: 0 0 10px rgba(179, 45, 86, 0.5);
+}
+
+.casellaSpunta input[type="checkbox"]:checked::before {
+    content: "✓";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-size: 0.95rem;
+    font-weight: 900;
+    color: var(--oro-rustico, #d4af37);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.casellaSpunta label {
+    cursor: pointer;
+    font-family: 'Georgia', serif;
+    font-size: 0.9rem;
+    color: #e2d7c5;
+    user-select: none;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#stanzaMuseo input[type="number"]::-webkit-outer-spin-button,
+#stanzaMuseo input[type="number"]::-webkit-inner-spin-button,
+.sistemaAdmin input[type="number"]::-webkit-outer-spin-button,
+.sistemaAdmin input[type="number"]::-webkit-inner-spin-button,
+#modaleEventoCrud input[type="number"]::-webkit-outer-spin-button,
+#modaleEventoCrud input[type="number"]::-webkit-inner-spin-button,
+#paginaCheckout input[type="number"]::-webkit-outer-spin-button,
+#paginaCheckout input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+
+
+#stanzaMuseo input[type="number"],
+.sistemaAdmin input[type="number"],
+#modaleEventoCrud input[type="number"],
+#paginaCheckout input[type="number"] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+
+#stanzaMuseo input[type="number"],
+.sistemaAdmin input[type="number"],
+#modaleEventoCrud input[type="number"],
+#paginaCheckout input[type="number"] {
+    text-align: center;
+    font-family: 'Georgia', monospace;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.scintilla {
+    position: absolute;
+    pointer-events: none;
+    background: radial-gradient(circle, #fff 0%, var(--colore-glitter) 60%, transparent 100%);
+    border-radius: 50%;
+    box-shadow: 0 0 3px 1px var(--colore-glitter), 0 0 5px rgba(255, 255, 255, 0.65);
+    animation: brillioAscensoreGlitter infinite alternate;
+}
+
+.scintilla::before,
+.scintilla::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: linear-gradient(90deg, transparent 0%, var(--colore-glitter) 20%, #ffffff 40%, #ffffff 60%, var(--colore-glitter) 80%, transparent 100%);
+    border-radius: 50%;
+}
+
+.scintilla::before {
+    width: 19px;
+    height: 1px;
+    transform: translate(-50%, -50%) scaleX(var(--scala-raggio-x, 2));
+}
+
+.scintilla::after {
+    width: 1px;
+    height: 19px;
+    transform: translate(-50%, -50%) scaleY(var(--scala-raggio-y, 2));
+}
+
+#stanzaMuseo input[type="text"],
+#stanzaMuseo input[type="password"],
+#stanzaMuseo input[type="date"],
+#stanzaMuseo input[type="number"],
+#stanzaMuseo textarea,
+#stanzaMuseo select,
+.sistemaAdmin input,
+.sistemaAdmin select {
+    width: 100%;
+    height: 48px;
+    box-sizing: border-box;
+    background-color: rgba(10, 10, 10, 0.85);
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 1.05rem;
+    color: #ffffff;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+#stanzaMuseo textarea,
+.sistemaAdmin textarea {
+    height: auto;
+    min-height: 110px;
+    resize: vertical;
+}
+
+#stanzaMuseo input:focus,
+#stanzaMuseo textarea:focus,
+#stanzaMuseo select:focus,
+.sistemaAdmin input:focus,
+.sistemaAdmin select:focus {
+    border-color: var(--oro-rustico, #d4af37);
+    box-shadow: 0 0 10px rgba(214, 175, 55, 0.35);
+}
+
+
+@keyframes sfumaturaEntrataForm {
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes ondulazioneVento {
+    0% {
+        transform: rotateY(0deg) skewX(0deg);
+    }
+
+    100% {
+        transform: rotateY(var(--oscillazione)) skewX(calc(var(--oscillazione) / 2));
+    }
+}
+
+@keyframes ondaTendaIntera {
+    0% {
+        transform: rotateY(0deg) skewX(0deg);
+    }
+
+    100% {
+        transform: rotateY(1.2deg) skewX(0.5deg);
+    }
+}
+
+@keyframes esciASelezionata {
+    0% {
+        transform: translateX(0) rotateY(0deg);
+    }
+
+    100% {
+        transform: translateX(-100%) rotateY(-5deg);
+    }
+}
+
+@keyframes rientraASelezionata {
+    0% {
+        transform: translateX(-100%) rotateY(-5deg);
+    }
+
+    100% {
+        transform: translateX(0) rotateY(0deg);
+    }
+}
+
+@keyframes brillioAscensoreGlitter {
+
+    0%,
+    100% {
+        opacity: 0.08;
+        transform: rotate(var(--rotazione-glitter)) scale(0.2);
+        filter: drop-shadow(0 0 0px rgba(255, 255, 255, 0));
+    }
+
+    50% {
+        opacity: 1;
+        transform: rotate(var(--rotazione-glitter)) scale(1);
+        filter: drop-shadow(0 0 6px var(--colore-glitter)) brightness(1.15);
+    }
+}
+
+
+@media (max-width: 768px) {
+
+    html,
+    body {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        min-height: 100vh;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+        overflow-y: auto;
+        background-color: #4a3319;
+        position: relative;
+    }
+
+    html {
+        scrollbar-width: thin;
+        scrollbar-gutter: stable;
+    }
+
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    ::-webkit-scrollbar:vertical {
+        width: 8px;
+    }
+
+    #stanzaMuseo {
+        perspective: 6000px;
+        transform-style: preserve-3d;
+        height: auto;
+        min-height: 100vh;
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+        overflow-y: visible;
+        display: block;
+        position: relative;
+    }
+
+    .ambiente3d {
+        position: absolute;
+        width: 0;
+        height: 0;
+        overflow: hidden;
+    }
+
+    .superficie {
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .superficie.soffitto,
+    .superficie.pavimentoParquet,
+    .superficie.pareteLaterale.sinistra,
+    .superficie.pareteLaterale.destra,
+    .gruppoFaretti {
+        display: none;
+    }
+
+    #stanzaMuseo .pareteLuci,
+    #stanzaMuseo .pareteFondo,
+    .superficie.pareteLuci,
+    .superficie.pareteFondo {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        width: 100%;
+        height: auto;
+        min-height: 100vh;
+        overflow-y: visible;
+        padding: 12px;
+        margin: 0;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #stanzaMuseo .pareteFondo {
+        min-height: 0;
+        background: transparent;
+        border: 0;
+        outline: 0;
+        box-shadow: none;
+        padding: 0;
+    }
+
+    #stanzaMuseo .pareteLuci {
+        background: #260a0a;
+        border-width: 5px;
+        outline: 1px solid rgba(212, 175, 55, 0.42);
+        box-shadow: inset 0 0 0 8px #35100f, inset 0 0 30px rgba(0, 0, 0, 0.8);
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .pagina.hidden,
+    #paginaMostre.hidden,
+    #paginaProfilo.hidden,
+    #paginaPrenotazioni.hidden,
+    #globaleAdmin.hidden,
+    #paginaCheckout.hidden,
+    .pannelloAdmin.hidden {
+        display: none;
+        height: 0;
+        overflow: hidden;
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .pagina:not(.nascosto),
+    #paginaMostre:not(.nascosto),
+    #paginaProfilo:not(.nascosto),
+    #paginaPrenotazioni:not(.nascosto),
+    #globaleAdmin:not(.nascosto),
+    #paginaCheckout:not(.nascosto) {
+        display: block;
+        width: 100%;
+        height: auto;
+        max-height: none;
+        overflow-y: visible;
+    }
+
+    #paginaProfilo,
+    #paginaPrenotazioni,
+    .centraturaProfilo {
+        height: auto;
+        min-height: 100vh;
+        max-height: none;
+        overflow-y: visible;
+        display: block;
+    }
+
+    .schedaProfilo,
+    .riquadroProfilo,
+    .spazioScheda {
+        height: auto;
+        min-height: auto;
+        max-height: none;
+        overflow: visible;
+    }
+
+    .centraturaProfilo,
+    .schedaProfilo,
+    .riquadroProfilo,
+    .spazioScheda {
+        height: auto;
+        min-height: auto;
+        max-height: none;
+        overflow: visible;
+        display: block;
+    }
+
+    .testataMuseo {
+        position: relative;
+        width: 100%;
+        height: auto;
+        top: auto;
+        left: auto;
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 72px;
+    }
+
+    #stanzaMuseo .guscioMuseo {
+        width: 100%;
+        height: auto;
+        min-height: 0;
+        padding: 0;
+        overflow: visible !important;
+    }
+
+    #stanzaMuseo .guscioMuseo:has(#paginaProfilo) {
+        overflow: hidden !important;
+    }
+
+    #paginaProfilo {
+        overflow-y: auto !important;
+        scrollbar-width: thin;
+    }
+
+    #paginaProfilo::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    #paginaMostre,
+    .barraFiltri {
+        position: relative;
+        height: auto;
+        max-height: none;
+        overflow: visible;
+    }
+
+    #paginaMostre {
+        padding: 12px;
+    }
+
+    .linkMenu {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 1rem;
+        padding: 0;
+    }
+
+    .btnMenu {
+        position: fixed;
+        top: 14px;
+        right: 14px;
+        left: auto !important;
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        background: linear-gradient(145deg, #4d0000, #241c15);
+        border: 2px solid var(--oro-rustico);
+        color: #ffe89e;
+        font-size: 1.35rem;
+        line-height: 1;
+        z-index: 20;
+    }
+
+    .menuNav {
+        display: none;
+        min-height: 0;
+        width: min(280px, calc(100vw - 28px));
+        max-width: calc(100vw - 28px);
+        margin: 0;
+        position: fixed;
+        top: 64px;
+        right: 14px;
+        left: auto;
+        padding: 8px 0;
+        background: rgba(20, 15, 12, 0.98);
+        border: 2px solid var(--oro-rustico);
+        border-radius: 8px;
+        z-index: 19;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+    }
+
+    .menuNav.menuAperto {
+        display: block;
+    }
+
+    .menuNav .linkMenu {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        width: 100%;
+    }
+
+    .menuNav .linkMenu li {
+        width: 100%;
+    }
+
+    .menuNav .voceMenu {
+        display: block;
+        width: 100%;
+        padding: 12px 18px;
+        text-align: right;
+        border: 0;
+        border-bottom: 1px dashed rgba(212, 175, 55, 0.18);
+        border-radius: 0;
+    }
+
+    .menuNav .btnAccedi {
+        width: 100%;
+        height: 78px;
+        max-width: 100%;
+    }
+
+    .logoMuseo {
+        top: 8px;
+        left: 10px;
+        width: min(365px, calc(100vw - 44px));
+        height: auto;
+        aspect-ratio: 425 / 145;
+        max-width: calc(100% - 44px);
+    }
+
+    #contenitoreEventi.grigliaEventi {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        padding: 15px 0;
+        width: 100%;
+        min-width: 0;
+    }
+
+    #contenitoreEventi .contenitoreMostra,
+    .scheda.schedaMostra {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        min-height: auto;
+        border: 12px solid transparent;
+        border-image-source: url('../icone/Cornice_eventi.png');
+        border-image-slice: 40;
+        padding: 15px;
+        box-sizing: border-box;
+    }
+
+    .barraFiltri .campoFiltro {
+        width: 100%;
+        min-width: 0;
+        flex-basis: 100%;
+    }
+
+    #stanzaMuseo #paginaMostre .contenitoreMostra.aperto {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        max-width: 100vw;
+        max-height: 100vh;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 25px;
+        padding: 90px 15px 40px 15px;
+        box-sizing: border-box;
+        z-index: 40;
+        background: rgba(0, 0, 0, 0.85);
+        backdrop-filter: blur(4px);
+        pointer-events: auto;
+    }
+
+    #stanzaMuseo #paginaMostre .aperto .sfondoMostra {
+        display: none;
+    }
+
+    #stanzaMuseo #paginaMostre .contenitoreMostra.aperto .schedaMostra {
+        position: relative;
+        top: auto;
+        left: auto;
+        bottom: auto;
+        right: auto;
+        transform: none;
+        width: 100%;
+        max-width: 330px;
+        margin: 0 auto;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.9);
+    }
+
+    #stanzaMuseo #paginaMostre .contenitoreMostra.aperto .pergamenaMostra {
+        position: relative;
+        top: auto;
+        left: auto;
+        bottom: auto;
+        right: auto;
+        transform: none;
+        width: 100%;
+        max-width: 350px;
+        height: auto;
+        aspect-ratio: 2 / 3;
+        margin: 0 auto;
+        opacity: 1;
+        visibility: visible;
+        box-shadow: 0 20px 45px rgba(0, 0, 0, 0.85);
+    }
+
+    
+
+    #stanzaMuseo #paginaMostre .contenitoreMostra.aperto .titoloDescrizione {
+        font-size: 1.1rem;
+        margin-bottom: 6px;
+    }
+
+    #stanzaMuseo #paginaMostre .contenitoreMostra.aperto .testoDescrizione {
+        font-size: 0.88rem;
+        line-height: 1.4;
+    }
+
+    .btnMenu {
+        display: flex;
+        position: fixed;
+        top: 15px;
+        left: 15px;
+        width: 44px;
+        height: 44px;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(20, 15, 12, 0.95);
+        border: 2px solid var(--oro-rustico, #d4af37);
+        border-radius: 6px;
+        color: var(--oro-rustico, #d4af37);
+        font-size: 1.6rem;
+        cursor: pointer;
+        z-index: 20;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .menuMobile {
+        position: fixed;
+        top: 65px;
+        left: 15px;
+        width: 240px;
+        background: rgba(20, 15, 12, 0.98);
+        border: 2px solid var(--oro-rustico, #d4af37);
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        padding: 10px 0;
+        z-index: 19;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+    }
+
+    .voceMenuMobile {
+        padding: 12px 20px;
+        color: #e2d7c5;
+        font-family: 'Cinzel', serif;
+        font-size: 0.85rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        border-bottom: 1px dashed rgba(212, 175, 55, 0.15);
+        cursor: pointer;
+        display: block;
+    }
+
+    .voceMenuMobile:last-child {
+        border-bottom: none;
+    }
+
+    .menuSchedeAdmin {
+        display: none;
+    }
+
+    .grigliaIndicatori {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+        display: grid;
+        gap: 8px;
+        margin-bottom: 1rem;
+        width: 100%;
+    }
+
+    .riquadroIndicatore,
+    .riquadroStatistica,
+    #top-evento-box {
+        padding: 6px 8px;
+        border-radius: 6px;
+        min-height: auto;
+        height: auto;
+        min-width: 0;
+        max-width: 100%;
+        box-sizing: border-box;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .valoreIndicatoreVerde,
+    .valoreIndicatoreOro,
+    #top-evento-name {
+        font-size: 1.1rem;
+        font-weight: 700;
+        text-shadow: 0 0 4px rgba(255, 232, 158, 0.2);
+        width: 100%;
+        text-align: center;
+    }
+
+    #top-evento-nome {
+        font-size: 0.78rem;
+        text-align: center;
+        width: 100%;
+    }
+
+    .testoIndicatore {
+        font-size: 0.62rem;
+        margin-top: 0.1rem;
+        letter-spacing: 0.1px;
+        width: 100%;
+        text-align: center;
+    }
+
+    #globaleAdmin {
+        width: 100vw;
+        height: auto;
+        min-height: 100vh;
+        max-height: none;
+        overflow-y: visible;
+        display: block;
+        padding: 15px;
+        box-sizing: border-box;
+    }
+
+    .pannelloAdmin {
+        height: auto;
+        min-height: auto;
+        max-height: none;
+        overflow: visible;
+    }
+
+    .contenitorePannelliAdmin {
+        width: 100%;
+        height: auto;
+        display: block;
+        overflow: visible;
+    }
+
+    #globaleAdmin {
+        padding: 10px;
+        width: 100%;
+    }
+
+    .pannelloAdmin {
+        padding: 15px;
+        width: 100%;
+    }
+
+    .titoloMostra.titoloAdmin {
+        font-size: 1.3rem;
+    }
+
+    #authBox {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 88%;
+        max-width: 440px;
+        height: auto;
+        max-height: 82vh;
+        aspect-ratio: auto;
+        background-color: rgba(20, 16, 12, 0.98);
+        background-image: none;
+        border: 2px solid var(--oro-rustico, #d4af37);
+        border-radius: 12px;
+        padding: 24px 14px;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.95), 0 0 25px rgba(212, 175, 55, 0.2);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        overflow-x: hidden;
+        overflow-y: auto;
+        z-index: 40;
+    }
+
+    .moduloAccesso {
+        width: min(100%, 360px);
+        height: auto;
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 12px;
+        animation: none;
+    }
+
+    .moduloAccesso h2 {
+        font-family: 'Cinzel', serif;
+        font-size: 1.4rem;
+        margin-bottom: 15px;
+        color: #ffe89e;
+        letter-spacing: 0.5px;
+    }
+
+    .moduloAccesso input[type="text"],
+    .moduloAccesso input[type="password"],
+    .moduloAccesso input[type="date"],
+    .moduloAccesso select {
+        width: 100%;
+        height: 46px;
+        padding: 10px 14px;
+        margin-bottom: 5px;
+        font-size: 0.95rem;
+        box-sizing: border-box;
+    }
+
+    .casellaSpunta {
+        max-width: 100%;
+        margin: 8px 0;
+        justify-content: center;
+    }
+
+    .casellaSpunta label {
+        font-size: 0.85rem;
+    }
+
+    .moduloAccesso button[type="submit"] {
+        width: 100%;
+        height: 46px;
+        margin-top: 10px;
+        font-size: 0.85rem;
+    }
+
+    .testoCambiaAccesso {
+        font-size: 0.9rem;
+        margin-top: 15px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .testoCambiaAccesso a {
+        font-size: 0.95rem;
+        padding-bottom: 2px;
+    }
+
+    #authBox .btnChiudiAccesso {
+        display: none;
+    }
+}
+
+@media (min-width: 769px) {
+    #stanzaMuseo {
+        overflow: hidden;
+        perspective: none;
+        transform-style: flat;
+    }
+
+    #stanzaMuseo .ambiente3d,
+    #stanzaMuseo .superficie {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        transform: none;
+        transform-style: flat;
+    }
+
+    #stanzaMuseo .soffitto {
+        z-index: 2;
+        clip-path: polygon(0 0, 100% 0, 86% 17%, 14% 17%);
+    }
+
+    #stanzaMuseo .pavimentoParquet {
+        z-index: 2;
+        clip-path: polygon(14% 84%, 86% 84%, 100% 100%, 0 100%);
+        background-color: #3a1f13;
+        background-image:
+            repeating-linear-gradient(90deg, transparent 0 9.7%, rgba(10, 5, 3, 0.72) 9.7% 10%, transparent 10% 19.7%),
+            repeating-linear-gradient(176deg, transparent 0 42px, rgba(255, 196, 105, 0.16) 43px 45px, rgba(20, 8, 4, 0.5) 46px 48px, transparent 49px 86px),
+            linear-gradient(90deg, #24120d 0%, #704027 18%, #321810 36%, #7a4829 53%, #2a150e 72%, #63351f 100%);
+        background-size: 100% 100%, 100% 100%, 100% 100%;
+        box-shadow: inset 0 28px 45px rgba(8, 3, 2, 0.65), inset 0 -20px 35px rgba(0, 0, 0, 0.45);
+    }
+
+    #stanzaMuseo .pareteLaterale.sinistra {
+        z-index: 2;
+        clip-path: polygon(0 0, 14% 17%, 14% 84%, 0 100%);
+        background: linear-gradient(90deg, #160606 0%, #32110e 72%, #4a2115 100%);
+    }
+
+    #stanzaMuseo .pareteLaterale.destra {
+        z-index: 2;
+        clip-path: polygon(100% 0, 100% 100%, 86% 84%, 86% 17%);
+        background: linear-gradient(270deg, #160606 0%, #32110e 72%, #4a2115 100%);
+    }
+
+    #stanzaMuseo .pareteLuci {
+        top: 7%;
+        left: 6%;
+        width: 88%;
+        height: 86%;
+        padding: 10px;
+        overflow: visible;
+        transform: none;
+        z-index: 3;
+        box-sizing: border-box;
+    }
+
+    #stanzaMuseo {
+        background:
+            linear-gradient(180deg, #160b0b 0 16%, transparent 16% 84%, #3a1f13 84% 100%),
+            #170909;
+    }
+
+    #stanzaMuseo .pareteFondo {
+        position: relative;
+        inset: auto;
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        overflow: visible;
+        transform: none;
+        box-sizing: border-box;
+        background: #260a0a;
+        z-index: 1;
+    }
+
+    #stanzaMuseo .guscioMuseo {
+        width: 100%;
+        height: 100%;
+        min-width: 0;
+        min-height: 0;
+        padding: clamp(8px, 1vw, 16px);
+        overflow: auto;
+        box-sizing: border-box;
+        position: relative;
+        z-index: 2;
+    }
+
+    #paginaMostre {
+        width: 100%;
+        height: 100%;
+        min-width: 0;
+        max-width: 100%;
+        overflow-y: auto;
+        box-sizing: border-box;
+    }
+
+    #contenitoreEventi.grigliaEventi {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)) !important;
+        gap: clamp(14px, 2vw, 30px);
+        width: 100%;
+        min-width: 0;
+        padding: clamp(12px, 1.5vw, 24px) 0;
+        box-sizing: border-box;
+    }
+
+    #contenitoreEventi .schedaMostra {
+        width: 100%;
+        max-width: none;
+        min-width: 0;
+    }
+
+    #stanzaMuseo .soffitto {
+        overflow: visible;
+    }
+
+    #stanzaMuseo .luceSoffitto {
+        box-shadow: 0 0 18px 7px rgba(255, 232, 158, 0.42), inset 0 0 8px rgba(255, 255, 255, 0.8);
+    }
+
+    #stanzaMuseo .luceSoffitto::before {
+        width: 180px;
+        height: 260px;
+        z-index: 0;
+        background: linear-gradient(to bottom, rgba(255, 238, 174, 0.22), rgba(255, 218, 120, 0.05) 58%, transparent);
+        filter: blur(10px);
+    }
+
+    #stanzaMuseo .gruppoFaretti {
+        position: absolute;
+        top: 4%;
+        left: 16%;
+        width: 68%;
+        height: 24%;
+        padding: 0;
+        margin: 0;
+        transform: none;
+        transform-style: flat;
+        align-items: flex-start;
+        overflow: visible;
+        z-index: 4;
+    }
+
+    #stanzaMuseo .luceSoffitto {
+        position: relative;
+        transform: none;
+        z-index: 1;
+    }
+
+    #stanzaMuseo .luceSoffitto::before {
+        content: "";
+        position: absolute;
+        top: 8px;
+        left: 50%;
+        width: 180px;
+        height: 260px;
+        transform: translateX(-50%);
+        clip-path: polygon(42% 0, 58% 0, 100% 100%, 0 100%);
+        background: linear-gradient(to bottom, rgba(255, 238, 174, 0.34), rgba(255, 218, 120, 0.08) 55%, transparent);
+        filter: blur(6px);
+        pointer-events: none;
+        z-index: -1;
+    }
+
+    #stanzaMuseo .gruppoFarettiOverlay::before {
+        top: 14px !important;
+        height: 650px !important;
+        z-index: 0 !important;
+        mix-blend-mode: screen;
+        background:
+            linear-gradient(165deg, transparent 0 8%, rgba(255, 238, 174, 0.14) 17%, rgba(255, 238, 174, 0.035) 78%, transparent 100%),
+            linear-gradient(165deg, transparent 24%, rgba(255, 238, 174, 0.14) 33%, rgba(255, 238, 174, 0.035) 78%, transparent 100%),
+            linear-gradient(165deg, transparent 48%, rgba(255, 238, 174, 0.14) 57%, rgba(255, 238, 174, 0.035) 78%, transparent 100%),
+            linear-gradient(165deg, transparent 72%, rgba(255, 238, 174, 0.14) 81%, rgba(255, 238, 174, 0.035) 78%, transparent 100%);
+        filter: blur(14px) !important;
+    }
+
+    #stanzaMuseo .gruppoFarettiOverlay {
+        top: -8% !important;
+        left: 16% !important;
+        width: 68% !important;
+        height: 60% !important;
+        z-index: 50 !important;
+        isolation: isolate;
+        overflow: visible !important;
+    }
+
+    #stanzaMuseo .gruppoFarettiOverlay .luceSoffitto {
+        z-index: 1 !important;
+        box-shadow: 0 0 16px 6px rgba(255, 232, 158, 0.42), inset 0 0 7px rgba(255, 255, 255, 0.8);
+    }
+
+    #stanzaMuseo .gruppoFarettiOverlay .luceSoffitto::before {
+        z-index: 2 !important;
+        display: block;
+        opacity: 1;
+        background: linear-gradient(to bottom, rgba(255, 238, 174, 0.2), rgba(255, 218, 120, 0.035) 58%, transparent);
+        filter: blur(10px);
+    }
+}
+
+

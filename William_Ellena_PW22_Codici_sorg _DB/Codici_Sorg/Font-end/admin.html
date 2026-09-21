@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArsNova - Pannello Gestione Admin</title>
+
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/admin.css">
+    <link rel="icon" href="data:,">
+</head>
+
+<body>
+    <div id="stanzaMuseo">
+        <div class="ambiente3d">
+            <div class="superficie soffitto">
+            </div>
+            <div class="superficie pavimentoParquet"></div>
+            <div class="superficie pareteLaterale sinistra"></div>
+            <div class="superficie pareteLaterale destra"></div>
+            <div class="pareteLuci">
+
+
+                <main class="pareteFondo">
+                    <div class="guscioMuseo" style="overflow: auto;">
+                        <header class="testataMuseo">
+                            <div class="logoMuseo logoAdmin" aria-label="ArsNova">
+                                <img src="./icone/logo.png" alt="ArsNova">
+                            </div>
+                            <ul class="linkMenu menuAdmin">
+                                <li>
+                                    <a href="index.html" class="voceMenu">Portale Visitatori</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="voceMenu etichettaUtente btnLogout"
+                                        id="btnLogoutAdminClick">Logout</a>
+                                </li>
+                            </ul>
+                        </header>
+
+                        <section class="barraFiltri grigliaIndicatori">
+                            <div class="campoFiltro riquadroIndicatore">
+                                <label class="testoStatistiche">Fatturato Attivo Netto</label>
+                                <span id="kpiIncassoTotale" class="valoreIndicatoreVerde">€ 0.00</span>
+                            </div>
+                            <div class="campoFiltro riquadroIndicatore">
+                                <label class="testoStatistiche">Titoli d'Ingresso Saldati</label>
+                                <span id="kpiBigliettiTotali" class="valoreIndicatoreOro">0</span>
+                            </div>
+                            <div class="campoFiltro riquadroIndicatore">
+                                <label class="testoStatistiche">Mostra / Esposizione Top</label>
+                                <span id="kpiMostraTop" class="testoIndicatore">Caricamento...</span>
+                            </div>
+                        </section>
+
+                        <div id="globaleAdmin">
+                            <div class="sistemaAdmin">
+                                <input type="radio" name="admin-tabs" id="attivatoreModerazione" checked
+                                    class="radioAdmin">
+                                <input type="radio" name="admin-tabs" id="attivatoreCatalogo" class="radioAdmin">
+                                <input type="radio" name="admin-tabs" id="attivatoreRegistro" class="radioAdmin">
+                                <input type="radio" name="admin-tabs" id="attivatoreAssistenza" class="radioAdmin">
+                                <input type="radio" name="admin-tabs" id="attivatoreCollaboratori"
+                                    class="radioAdmin">
+
+                                <nav class="barraFiltri menuSchedeAdmin">
+                                    <label for="attivatoreModerazione" class="btnCerca etichettaScheda">
+                                        Gestione Utenti
+                                    </label>
+                                    <label for="attivatoreCatalogo" class="btnCerca etichettaScheda">Catalogo
+                                        Esposizioni</label>
+                                    <label for="attivatoreRegistro" class="btnCerca etichettaScheda">Registro
+                                        Fiscale</label>
+                                    <label for="attivatoreAssistenza"
+                                        class="btnCerca etichettaScheda">Assistenza
+                                        Ticket</label>
+                                    <label for="attivatoreCollaboratori" class="btnCerca etichettaScheda">Gestione
+                                        Admin</label>
+                                </nav>
+
+                                <div class="contenitorePannelliAdmin">
+
+                                    <section id="pannelloModerazione"
+                                        class="scheda schedaMostra pannelloAdmin">
+                                        <div class="testataScheda testoSinistra">
+                                            <h2 class="titoloMostra titoloAdmin">Gestione Utenti</h2>
+                                            <p class="descrizioneMostra">Cerca i visitatori per nome per effettuare
+                                                verifiche,
+                                                rimuovere utenze o risolvere conflitti di omonimia in conformità con le
+                                                policy
+                                                GDPR.</p>
+                                        </div>
+
+                                        <div class="barraOperazioni">
+                                            <div class="campoFiltro campoElastico">
+                                                <input type="text" id="campoEliminaUtenteUniversale"
+                                                    placeholder="Digita il nome o l'e-mail del visitatore...">
+                                            </div>
+                                            <button id="btnAdminCercaUtente" class="btnCerca">Avvia
+                                                Ricerca</button>
+                                            <button id="btnAdminEliminaUtente"
+                                                class="btnPagamento btnPericoloVelluto">Rimozione Diretta</button>
+                                        </div>
+
+                                        <div id="boxCollisioneOmonimia" class="nascosto riquadroCollisione">
+                                            <p class="avvisoCollisione">Rilevati casi di omonimia nel database.
+                                                Seleziona
+                                                l'account specifico dal menu:</p>
+                                            <div class="contenitoreSelettore">
+                                                <select id="selectUtenteCollisione"
+                                                    class="selettoreAdmin"></select>
+                                                <button id="btnAdminRisolviCollisione"
+                                                    class="btnCerca btnOro">Conferma Eliminazione
+                                                    Mirata</button>
+                                            </div>
+                                        </div>
+
+                                        <div id="contenitoreRisultatiRicercaUtenti"
+                                            class="nascosto contenitoreTabella">
+                                            <table class="tabellaAdmin">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Matricola</th>
+                                                        <th>Nominativo</th>
+                                                        <th>Indirizzo E-mail</th>
+                                                        <th>Sesso</th>
+                                                        <th>Inquadramento</th>
+                                                        <th>Comandi</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="corpoRisultatiRicercaUtenti"></tbody>
+                                            </table>
+                                        </div>
+                                    </section>
+
+                                    <section id="pannelloCatalogo" class="scheda schedaMostra pannelloAdmin">
+                                        <div class="testataScheda testataSpaziata">
+                                            <h2 class="titoloMostra titoloAdmin">Catalogo delle
+                                                Esposizioni
+                                            </h2>
+                                            <button id="btnApriModaleNuovo" class="btnCerca btnOro">+
+                                                Aggiungi Nuova Mostra</button>
+                                        </div>
+                                        <p class="descrizioneMostra testoSinistra">Inserisci, modifica o rimuovi i
+                                            record
+                                            dei
+                                            singoli eventi museali e delle esposizioni d'arte.</p>
+
+                                        <div class="contenitoreTabella">
+                                            <table class="tabellaAdmin">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Codice</th>
+                                                        <th>Titolo dell'Evento</th>
+                                                        <th>Tipologia</th>
+                                                        <th>Data Mostra</th>
+                                                        <th>Sala / Luogo</th>
+                                                        <th>Capienza Posti</th>
+                                                        <th>Tariffa Base</th>
+                                                        <th>Azioni Consentite</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="corpoCrudEventi"></tbody>
+                                            </table>
+                                        </div>
+                                    </section>
+
+                                    <section id="pannelloRegistro" class="scheda schedaMostra pannelloAdmin">
+                                        <div class="testataScheda testoSinistra">
+                                            <h2 class="titoloMostra titoloAdmin">Registro Fiscale e
+                                                Transazioni
+                                            </h2>
+                                            <p class="descrizioneMostra">Tracciamento analitico dei flussi contabili e
+                                                dello
+                                                stato
+                                                di incasso dei titoli d'acquisto della galleria.</p>
+                                        </div>
+
+                                        <div class="contenitoreTabella">
+                                            <table class="tabellaAdmin">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Ricevuta</th>
+                                                        <th>Prenotazione</th>
+                                                        <th>Acquirente</th>
+                                                        <th>Corrispettivo</th>
+                                                        <th>Canale</th>
+                                                        <th>Codice Transazione</th>
+                                                        <th>Stato Contabile</th>
+                                                        <th>Mostra Associata</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="corpoRegistroPagamenti"></tbody>
+                                            </table>
+                                        </div>
+                                    </section>
+
+                                    <section id="pannelloAssistenza"
+                                        class="scheda schedaMostra pannelloAdmin">
+                                        <div class="testataScheda testoSinistra">
+                                            <h2 class="titoloMostra titoloAdmin">Assistenza
+                                                Prenotazioni e
+                                                Biglietteria</h2>
+                                            <p class="descrizioneMostra">Cerca i biglietti dei visitatori ed esegui
+                                                revoche
+                                                manuali d'ufficio per liberare tempestivamente i posti.</p>
+                                        </div>
+
+                                        <div class="riquadroFiltri">
+                                            <div class="campoFiltro campoAssistenza">
+                                                <label>E-mail Visitatore</label>
+                                                <input type="text" id="cercaPrenEmail" placeholder="Cerca email...">
+                                            </div>
+                                            <div class="campoFiltro campoAssistenza">
+                                                <label>Titolo dell'Esposizione</label>
+                                                <input type="text" id="cercaPrenEvento" placeholder="Cerca mostra...">
+                                            </div>
+                                            <button id="btnCercaPrenotazioni" class="btnCerca">Filtra
+                                                Ticket</button>
+                                        </div>
+
+                                        <div class="contenitoreTabella">
+                                            <table class="tabellaAdmin">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Ticket</th>
+                                                        <th>Account Visitatore</th>
+                                                        <th>Mostra Richiesta</th>
+                                                        <th>Tariffa</th>
+                                                        <th>Quantità</th>
+                                                        <th>Stato Titolo</th>
+                                                        <th>Azioni Riservate</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="corpoCustomerServicePrenotazioni"></tbody>
+                                            </table>
+                                        </div>
+                                    </section>
+
+                                    <section id="pannelloCollaboratori" class="pannelloAdmin corniceParete">
+
+                                        <div class="testataParete">
+                                            <h2 class="titoloParete">Pannello Gestione Admin</h2>
+                                            <p class="descrizioneParete">
+                                                Gestione degli operatori, degli accessi e dei livelli autorizzativi.
+                                            </p>
+                                        </div>
+
+                                        <form id="moduloCreaSottoadmin" class="moduloStaff">
+                                            <h3 class="sottotitoloAntico">Registra Nuovo Collaboratore</h3>
+
+                                            <div class="grigliaOperatori">
+                                                <div class="campoFiltro">
+                                                    <label for="adminNome">Nome Operatore</label>
+                                                    <input type="text" id="adminNome" placeholder="Nome completo"
+                                                        required>
+                                                </div>
+
+                                                <div class="campoFiltro">
+                                                    <label for="adminEmail">E-mail Istituzionale</label>
+                                                    <input type="email" id="adminEmail" placeholder="nome@museo.it"
+                                                        required>
+                                                </div>
+
+                                                <div class="campoFiltro">
+                                                    <label for="adminPassword">Password di Accesso</label>
+                                                    <input type="password" id="adminPassword" placeholder="********"
+                                                        required>
+                                                </div>
+
+                                                <div class="campoFiltro">
+                                                    <label for="adminPermessi">Livello Autorizzativo</label>
+                                                    <select id="adminPermessi" class="selettoreAdmin">
+                                                        <option value="LETTURA">Sola LETTURA</option>
+                                                        <option value="MODERATORE">MODERATORE</option>
+                                                        <option value="TOTALE">Controllo TOTALE (Supremo)</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <button type="submit" class="btnPagamento btnStaff">
+                                                Aggiungi Admin
+                                            </button>
+                                        </form>
+
+                                        <div class="contenitoreTabella">
+                                            <table class="tabellaAdmin">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Matricola</th>
+                                                        <th>Operatore</th>
+                                                        <th>E-mail</th>
+                                                        <th>Livello Autorizzativo</th>
+                                                        <th>Azioni</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="corpoGestionePersonale">
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </section>
+
+                                </div>
+                            </div>
+
+                            <div id="modaleEventoCrud" class="modalScuro nascosto">
+                                <div class="contenutoModal scheda schedaMostra moduloAllineato">
+                                    <button id="btnChiudiModale" class="btnChiudiDescrizione" type="button">X</button>
+                                    <div class="testataScheda">
+                                        <h2 id="modaleTitoloAzione" class="titoloMostra">Gestione Record
+                                            Esposizione
+                                        </h2>
+                                    </div>
+                                    <form id="moduloEventoAdmin" class="moduloPagamento spazioModal">
+                                        <input type="hidden" id="moduloEventoId">
+                                        <input type="hidden" id="moduloEventoPostiDisponibili">
+
+                                        <div class="gruppoModulo">
+                                            <label>Titolo della Mostra</label>
+                                            <input type="text" id="moduloEventoTitolo" required>
+                                        </div>
+                                        <div class="gruppoModulo">
+                                            <label>Descrizione Analitica</label>
+                                            <textarea id="moduloEventoDescrizione" rows="3" required></textarea>
+                                        </div>
+                                        <div class="gruppoModulo">
+                                            <label>Categoria / Tipo Evento</label>
+                                            <select id="moduloEventoTipo" class="selettoreAdmin">
+                                                <option value="MOSTRA">MOSTRA INTERNA</option>
+                                                <option value="SPECIALE">EVENTO SPECIALE</option>
+                                                <option value="WORKSHOP">CONFERENZA / WORKSHOP</option>
+                                            </select>
+                                        </div>
+                                        <div class="gruppoModulo">
+                                            <label>Pianificazione Data</label>
+                                            <input type="date" id="moduloEventoData" required>
+                                        </div>
+                                        <div class="gruppoModulo">
+                                            <label>Ubicazione / Padiglione</label>
+                                            <input type="text" id="moduloEventoLuogo" required>
+                                        </div>
+                                        <div class="gruppoModulo">
+                                            <label>Capienza Posti Totale (Sala)</label>
+                                            <input type="number" id="moduloEventoPosti" required>
+                                        </div>
+                                        <div class="gruppoModulo">
+                                            <label>Tariffa Biglietto Base (€)</label>
+                                            <input type="number" id="moduloEventoPrezzo" step="0.01" required>
+                                        </div>
+                                        <div class="gruppoModulo casellaSpunta">
+                                            <input type="checkbox" id="moduloEventoCassa">
+                                            <label for="moduloEventoCassa">Abilita
+                                                pagamento in cassa</label>
+                                        </div>
+                                        <button type="submit" class="btnPagamento">Salva Configurazione</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+                <div class="gruppoFaretti gruppoFarettiOverlay" aria-hidden="true">
+                    <div class="luceSoffitto"></div>
+                    <div class="luceSoffitto"></div>
+                    <div class="luceSoffitto"></div>
+                    <div class="luceSoffitto"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div id="notificheContenitore"></div>
+    <script src="js/animations.js"></script>
+    <script src="js/admin.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+
+</html>
